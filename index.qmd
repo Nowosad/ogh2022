@@ -1,0 +1,6 @@
+---
+title: "Geocomputation with R's guide to reproducible spatial data analysis"
+author: "Jakub Nowosad"
+date: 2022-08-30
+format: revealjs
+---
