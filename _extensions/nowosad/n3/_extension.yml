@@ -1,0 +1,8 @@
+title: "TITLE"
+author: "AUTHOR"
+institute: "INSTITUTE"
+version: 1.0.0
+contributes:
+  formats:
+    revealjs:
+      theme: [default, theme.scss]

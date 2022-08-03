@@ -1,6 +1,16 @@
 ---
-title: "Geocomputation with R's guide to reproducible spatial data analysis"
+title: "Geocomputation with R's guide <br>to reproducible <br>spatial data analysis"
 author: "Jakub Nowosad"
-date: 2022-08-30
-format: revealjs
+institute: "https://jakubnowosad.com/"
+date: today
+date-format: iso
+format:
+  n3-revealjs:
+    echo: true
+    highlight-style: github
+    slide-number: c/t
+    width: 1600
+    height: 900
+    footer: "[JN](https://jakubnowosad.com/)"
+    transition: none
 ---
