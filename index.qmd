@@ -1,8 +1,8 @@
 ---
 title: "Geocomputation with R's guide <br>to reproducible <br>spatial data analysis"
-author: "Jakub Nowosad"
-institute: "https://jakubnowosad.com/"
-date: today
+author: "Jakub Nowosad, https://jakubnowosad.com/"
+institute: "OpenGeoHub Summer School 2022"
+date: "2022-08-30"
 date-format: iso
 format:
   n3-revealjs:
@@ -11,6 +11,50 @@ format:
     slide-number: c/t
     width: 1600
     height: 900
-    footer: "[JN](https://jakubnowosad.com/)"
+    footer: "[jakubnowosad.com/ogh2022](https://jakubnowosad.com/ogh2022/)"
     transition: none
 ---
+
+# Chapter 1: Geocomputation
+
+<!-- 1.5h + 1.5h -->
+<!-- 100 slides top! -->
+
+<!-- openshaw -->
+<!-- currently an obvious thing -->
+<!-- what it involves -->
+<!-- conection between different fields -->
+
+# Chapter 2: Geocomputation with R
+
+<!-- https://jakubnowosad.com/SIGR2021/lecture/lecture.html#10 -->
+<!-- ecosystems -->
+<!-- libs -->
+<!-- terra -->
+<!-- sf -->
+<!-- tmap? -->
+<!-- conversions -->
+
+<!-- exercises -->
+<!-- two or three levels of difficulty -->
+
+# Chapter 3: Reproducible analysis
+
+<!-- ladder -->
+<!-- over space and time -->
+
+# Chapter 4: Reproducible geocomputation
+
+<!-- R (code) -->
+<!-- renv -->
+<!-- github actions -->
+<!-- quarto -->
+<!-- docker -->
+<!-- targets -->
+
+<!-- exercise: -->
+<!-- make the code reproducible -->
+
+# The end
+
+https://jakubnowosad.com/ogh2022/
