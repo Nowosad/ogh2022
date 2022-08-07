@@ -20,10 +20,201 @@ format:
 <!-- 1.5h + 1.5h -->
 <!-- 100 slides top! -->
 
+---
+
 <!-- openshaw -->
 <!-- currently an obvious thing -->
 <!-- what it involves -->
-<!-- conection between different fields -->
+<!-- connection between different fields -->
+
+::: {.r-fit-text}
+(geo)spati|graphic)\*(al)\*
+
+( )\*(stuff|data|comput|inform)\*(ing|ation)\*
+
+(science|systems|theory|analysis)\*
+:::
+
+
+Based on the David O’Sullivan's talk title at the Geocomputation 2019 conference
+
+---
+
+::: {.r-fit-text}
+(**geo**)spati|graphic)\*(al)\*
+
+( )\*(stuff|data|**comput**|inform)\*(ing|**ation**)\*
+
+(science|systems|theory|analysis)\*
+:::
+
+Based on the David O’Sullivan's talk title at the Geocomputation 2019 conference
+
+
+---
+
+```{r gdsl, echo=FALSE, message=FALSE}
+d = readr::read_csv("data/gis-vs-gds-table.csv")
+knitr::kable(x = d, 
+             caption = paste("Differences in emphasis between software", 
+                             "packages (Graphical User Interface (GUI) of", 
+                             "Geographic Information Systems (GIS) and R)."),
+             caption.short = "Differences between GUI and CLI",
+             booktabs = TRUE)
+```
+
+<!-- This book is motivated by the importance of reproducibility\index{reproducibility} for scientific research (see the note below). -->
+<!-- It aims to make reproducible geographic data analysis\index{geographic data analysis} workflows more accessible, and demonstrate the power of open geospatial software available from the command-line. -->
+
+# GIS Applications
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r, echo=FALSE, warning=FALSE, fig.height=7}
+# install.packages("wordcloud")
+library(wordcloud)
+w = c("Ecology", "Earth-Observation", "Economics", "Demography",
+  "Politics", "Journalism", "History", "Archeology", "Transport", 
+  "Climatology", "Meteorology")
+w2 = c("Geomorphometry", "Astronomy", "Architecture", "Hydrology",
+       "Insurance", "Urban-Planning", "Mining", "Marine-Studies",
+       "Soil-Science", "Sport", "Telecomunication", "Tourism")
+wordcloud(c(w), rot.per = 0.2)
+```
+:::
+
+:::  {.column width="40%"}
+```{r}
+#| echo = FALSE,
+#| fig.height=7
+wordcloud(c(w2), rot.per = 0.2)
+```
+:::
+
+::::
+
+## Data models
+
+<!-- Traditionally, spatial data is described by two basic data models: vector data model aimed at representing the world using points, lines, and polygons, and raster data model focused on representing surfaces -->
+
+---
+
+![Source: https://r-tmap.github.io/](figs/vector-data-model-1.png)
+
+---
+
+![Source: https://r-tmap.github.io/](figs/raster-intro-1.png)
+
+---
+
+![Source: https://r-tmap.github.io/](figs/vector-data-cubes-1.png){.r-stretch}
+![Source: https://r-tmap.github.io/](figs/raster-data-cubes-1.png){.r-stretch}
+
+---
+
+![Source: https://github.com/Jean-Romain/lidR](figs/point-cloud-rotating.gif)
+
+## Coordinate reference systems
+
+## Data sources
+
+<!-- Źródła danych, pliki, servery, stac, gee, closed and open,  -->
+
+## Data processing
+
+## Basic vector operations
+
+- Simplification
+- Intersect
+- Additional topological relations
+- Spatial joins
+- Centroids
+- Buffers
+
+## Map algebra
+
+Used for a various task related to spatial raster data.
+
+It can be divided into four groups:
+
+1. **Local** - per-cell operations
+2. **Focal (neighborhood operations)** - most often the output cell value is the result of a 3 x 3 input cell block
+3. **Zonal operations** - to summarize raster values for some zones (usually irregular areas)
+4. **Global** - to summarize raster values for one or several rasters
+
+## Raster-vector interactions
+
+1. Raster cropping and masking
+2. Raster extraction - by points, lines, and polygons
+3. Rasterization - points, lines, polygons to rasters
+4. Vectorization - rasters to polygons or contours
+
+<!-- reprojections? -->
+
+## Spatial data analysis
+
+```{dot}
+#| echo = FALSE
+digraph G {
+     layout=circo
+     rankdir=LR
+     
+     node [shape=circle];
+     cir1 [label="Spatial analysis"];
+     
+     node [shape=rectangle];
+     rec1 [label="Spatial autocorrelation"];
+     rec2 [label="Spatial interpolation"];
+     rec3 [label="Spatial interaction"];
+     rec4 [label="Simulation and modeling"];
+     rec5 [label="Density mapping"];
+     
+     rec1 -> cir1;
+     rec2 -> cir1;
+     rec3 -> cir1;
+     rec4 -> cir1;
+     rec5 -> cir1;
+     }
+```
+
+*(incomplete list)*
+
+## Spatial data analysis
+
+
+```{dot d2}
+#| echo = FALSE
+digraph G2 {
+   layout=circo
+   rankdir=LR
+   
+   node [shape = circle];
+   cir1 [label = "Spatial analysis"];
+   
+   node [shape = rectangle];
+   rec1 [label = "Spatial modeling"];
+   rec2 [label = "Point pattern analysis"];
+   rec3 [label = "Network analysis"];
+   rec4 [label = "Surface analysis"];
+   rec5 [label = "Grid analysis"];
+   rec6 [label = "Single-layer operations"];
+   rec7 [label = "Multi-layer operations"];
+   
+   rec1 -> cir1;
+   rec2 -> cir1;
+   rec3 -> cir1;
+   rec4 -> cir1;
+   rec5 -> cir1;
+   rec6 -> cir1;
+   rec7 -> cir1;
+   }
+```
+*(incomplete list)*
+
+## Geocomputational methods
+
+## Spatial vizualizations
 
 # Chapter 2: Geocomputation with R
 
@@ -32,11 +223,17 @@ format:
 <!-- libs -->
 <!-- terra -->
 <!-- sf -->
+<!-- R obiekty przestrzenne: sf stars terra s2 (Dewey) modularization (Michael Sumner) sfnetworks, lidr, etc. Spatstat -->
+
 <!-- tmap? -->
+
+<!-- Spiderweb of interconnection -->
+<!-- My supercells example? -->
 <!-- conversions -->
 
 <!-- exercises -->
 <!-- two or three levels of difficulty -->
+<!-- Exercise: includes downloading files online, some function that is new,  -->
 
 # Chapter 3: Reproducible analysis
 
@@ -45,12 +242,15 @@ format:
 
 # Chapter 4: Reproducible geocomputation
 
+<!-- https://kbroman.org/knitr_knutshell/pages/reproducible.html -->
+
 <!-- R (code) -->
 <!-- renv -->
 <!-- github actions -->
 <!-- quarto -->
 <!-- docker -->
 <!-- targets -->
+<!-- r packages -->
 
 <!-- exercise: -->
 <!-- make the code reproducible -->
