@@ -120,6 +120,8 @@ wordcloud(c(w2), rot.per = 0.2)
 ## Data sources
 
 <!-- Źródła danych, pliki, servery, stac, gee, closed and open,  -->
+<!-- zarr, cog, parquet, geoarrow -->
+<!-- https://t.co/ra3O5HiwjR -->
 
 ## Data processing
 
@@ -214,22 +216,152 @@ digraph G2 {
 
 ## Geocomputational methods
 
+- Exploratory data analysis (EDA)
+- Data processing (e.g., adding new variables)
+- Data transformation (e.g., changing CRS, reducing size via simplification/aggregation)
+- Data visualization
+- Web application development
+- Software development (e.g., to share new methods)
+
 ## Spatial vizualizations
 
 # Chapter 2: Geocomputation with R
 
-<!-- https://jakubnowosad.com/SIGR2021/lecture/lecture.html#10 -->
-<!-- ecosystems -->
-<!-- libs -->
-<!-- terra -->
-<!-- sf -->
-<!-- R obiekty przestrzenne: sf stars terra s2 (Dewey) modularization (Michael Sumner) sfnetworks, lidr, etc. Spatstat -->
+## Ecosystems
+
+<!-- more than one way to solve a problem -->
+
+---
+
+- [{sf}](https://github.com/r-spatial/sf),
+[{sp}](https://github.com/edzer/sp),
+[{terra}](https://github.com/rspatial/terra),
+[{raster}](https://github.com/rspatial/raster), [{stars}](https://github.com/r-spatial/stars) - spatial classes
+- [{dplyr}](https://github.com/tidyverse/dplyr), [{rmapshaper}](https://github.com/ateucher/rmapshaper) - processing of attribute tables/geometries 
+- [{rnaturalearth}](https://github.com/ropensci/rnaturalearth), [{osmdata}](https://github.com/ropensci/osmdata) - spatial data download
+- [{rgrass}](https://github.com/rsbivand/rgrass), [{qgisprocess}](https://github.com/paleolimbot/qgisprocess), [{link2GI}](https://github.com/r-spatial/link2GI) - connecting with GIS software
+- [{gstat}](https://github.com/r-spatial/gstat), [{mlr3}](https://github.com/mlr-org/mlr3), [{CAST}](https://github.com/HannaMeyer/CAST) - spatial data modeling
+- [{rasterVis}](https://github.com/oscarperpinan/rastervis), [{tmap}](https://github.com/mtennekes/tmap), [{ggplot2}](https://github.com/tidyverse/ggplot2) - static visualizations
+- [{leaflet}](https://github.com/rstudio/leaflet), [{mapview}](https://github.com/r-spatial/mapview), [{mapdeck}](https://github.com/SymbolixAU/mapdeck) - interactive visualizations
+- [{spatstat}](http://spatstat.org/), [{spdep}](https://github.com/r-spatial/spdep), [{spatialreg}](https://github.com/r-spatial/spatialreg), [{dismo}](https://github.com/rspatial/dismo), [{landscapemetrics}](https://github.com/r-spatialecology/landscapemetrics), [{RStoolbox}](http://bleutner.github.io/RStoolbox/rstbx-docu/RStoolbox.html), [{rayshader}](https://github.com/tylermorganwall/rayshader), [{gdalcubes}](https://github.com/appelmar/gdalcubes_R), [{sfnetworks}](https://github.com/luukvdmeer/sfnetworks) - different types of spatial data analysis
+- many more...
+
+Visit https://cran.r-project.org/view=Spatial to get an overview of different spatial tasks that can be solved using R.
+
+---
+
+![Source: https://geocompr.robinlovelace.net](https://geocompr.robinlovelace.net/figures/01-cranlogs.png)
+
+---
+
+```{r}
+library(spData)
+library(sf)
+world
+```
+
+---
+
+```{r}
+plot(world)
+```
+
+---
+
+![Source: https://www.r-spatial.org/r/2020/03/17/wkt.html](https://keen-swartz-3146c4.netlify.com/images/sf_deps.png)
+
+<!-- + mention bridges -->
+
+---
+
+![](figs/terra-libs.png)
+
+---
+
+```{r}
+library(terra)
+srtm = rast(system.file("raster/srtm.tif", package = "spDataLarge"))
+srtm
+```
+
+---
+
+```{r}
+plot(srtm)
+```
+
+---
+
+
+- [rspatial](https://www.rspatial.org/) vs [r-spatial](https://www.r-spatial.org/)
+- Old vs New
+- [Legacy](https://geocompr.robinlovelace.net/intro.html#the-history-of-r-spatial)
+- Other R ecosystems
+
+
+---
+
+![{stars} - https://r-spatial.github.io/stars/](figs/cube2.png)
+
+
+---
+
+![{s2} - https://r-spatial.github.io/s2/](figs/s2.png)
+
+<!-- also geoarrow -->
+
+---
+
+![{lidR} - https://github.com/r-lidar/lidR](figs/lidr.png)
+
+---
+
+![{sfnetwork} - https://luukvdmeer.github.io/sfnetworks](figs/sfnetwork.png)
+
+---
+
+![{spatstat} - https://spatstat.org/](figs/spatstat.png)
+
+<!-- ecosystem of packages on its own! -->
+
+---
+
+![hypertidy-verse - https://github.com/hypertidy](figs/hypertidy.png)
+
+
+---
+
+![](figs/supercells.png)
+
+---
+
+<!-- Spiderweb of interconnection -->
+<!-- small -->
+
+---
+
+<!-- Spiderweb of interconnection -->
+<!-- large -->
+
+---
+
+```{r}
+#| echo: false
+#| fig-width: 12
+#| fig-height: 7
+library(miniCRAN)
+dg = makeDepGraph("supercells", enhances = TRUE)
+set.seed(1)
+plot(dg, legendPosition = c(-1, -1), vertex.size = 10, cex = 0.7)
+```
 
 <!-- tmap? -->
 
-<!-- Spiderweb of interconnection -->
 <!-- My supercells example? -->
 <!-- conversions -->
+
+---
+## Exercises
 
 <!-- exercises -->
 <!-- two or three levels of difficulty -->
