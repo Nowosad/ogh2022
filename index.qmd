@@ -252,6 +252,14 @@ digraph G2 {
 <!-- targets -->
 <!-- r packages -->
 
+<!-- Each tool plus (real life) example -->
+
+<!-- Gify? -->
+
+<!-- Potential issues (e.g. terra pointers, software versions, both external and R, differences between operating systems, large data, computionlay demanding operations) -->
+
+<!-- Counterexercise: give a code that worked in the past -- fix it! -->
+
 <!-- exercise: -->
 <!-- make the code reproducible -->
 
