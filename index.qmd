@@ -50,6 +50,28 @@ Based on the David O’Sullivan's talk title at the Geocomputation 2019 conferen
 
 Based on the David O’Sullivan's talk title at the Geocomputation 2019 conference
 
+---
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+> GeoComputation is about using the various different types of geodata and about developing relevant geo-tools within the overall context of a 'scientific' approach (Openshaw 2000).
+
+:::
+
+::: {.column width="60%"}
+
+![](figs/s.openshaw.png){.r-stretch}
+
+:::
+
+::::
+
+<!-- - But we do differ from early definitions in one important way: -->
+
+> At the turn of the 21st Century it was unrealistic to expect readers to be able to reproduce code examples, due to barriers preventing access to the necessary hardware, software and data
+
 
 ---
 
@@ -272,9 +294,7 @@ plot(world)
 
 <!-- + mention bridges -->
 
----
 
-![](figs/terra-libs.png)
 
 ---
 
@@ -292,6 +312,9 @@ plot(srtm)
 
 ---
 
+![](figs/terra-libs.png)
+
+---
 
 - [rspatial](https://www.rspatial.org/) vs [r-spatial](https://www.r-spatial.org/)
 - Old vs New
@@ -360,7 +383,6 @@ plot(dg, legendPosition = c(-1, -1), vertex.size = 10, cex = 0.7)
 <!-- My supercells example? -->
 <!-- conversions -->
 
----
 ## Exercises
 
 <!-- exercises -->
@@ -371,24 +393,54 @@ plot(dg, legendPosition = c(-1, -1), vertex.size = 10, cex = 0.7)
 
 <!-- ladder -->
 <!-- over space and time -->
+<!-- https://annakrystalli.me/talks/r-in-repro-research-dc.html#122 -->
+<!-- https://kbroman.org/knitr_knutshell/pages/reproducible.html -->
 
 # Chapter 4: Reproducible geocomputation
 
-<!-- https://kbroman.org/knitr_knutshell/pages/reproducible.html -->
+## a
 
-<!-- R (code) -->
-<!-- renv -->
-<!-- github actions -->
-<!-- quarto -->
-<!-- docker -->
-<!-- targets -->
-<!-- r packages -->
+![](figs/mypap.png)
+
+<!-- issue: human memory -->
+
+## R code
+
+![](figs/mt-gears.gif)
+
+## {renv}
+
+<!-- issue: software versions, both external and R -->
+
+## {targets}
+
+<!-- issue: large data, computionlay demanding operations -->
+<!-- terra pointers -->
+
+## Literate programming
+
+<!-- sharebility -->
+<!-- word example? -->
+<!-- rmarkdown/quarto -->
+
+## R packages
+
+<!-- repetition -->
+
+## Docker
+
+
+<!-- Binder -->
+
+## CI/CD
+
+<!-- it works on my computer -->
+
 
 <!-- Each tool plus (real life) example -->
-
 <!-- Gify? -->
 
-<!-- Potential issues (e.g. terra pointers, software versions, both external and R, differences between operating systems, large data, computionlay demanding operations) -->
+## Exercises
 
 <!-- Counterexercise: give a code that worked in the past -- fix it! -->
 
