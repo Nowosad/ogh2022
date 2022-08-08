@@ -70,8 +70,9 @@ Based on the David O’Sullivan's talk title at the Geocomputation 2019 conferen
 
 <!-- - But we do differ from early definitions in one important way: -->
 
+::: aside
 > At the turn of the 21st Century it was unrealistic to expect readers to be able to reproduce code examples, due to barriers preventing access to the necessary hardware, software and data
-
+:::
 
 ---
 
@@ -138,6 +139,51 @@ wordcloud(c(w2), rot.per = 0.2)
 ![Source: https://github.com/Jean-Romain/lidR](figs/point-cloud-rotating.gif)
 
 ## Coordinate reference systems
+
+
+```{r, purl=FALSE,echo=FALSE, warning=FALSE}
+library(tmap)
+library(sf)
+world_gr = st_graticule(ndiscr = 9999,
+                                  lon = seq(-90, 90, 10),
+                                  lat = seq(-180, 180, 10))
+
+ortho_crs = st_crs("+proj=ortho")
+world_gr2 = st_transform(world_gr, crs = ortho_crs)
+tm1 = tm_shape(world_gr2) +
+  tm_lines() +
+  tm_layout(inner.margins = 0.05, 
+            frame = FALSE, 
+            outer.margins = 0)
+
+grid_sf = st_make_grid(world_gr2)
+tm2 = tm_shape(grid_sf) +
+  tm_polygons(alpha = 0) +
+  tm_layout(inner.margins = 0.05, 
+            frame = FALSE, 
+            outer.margins = 0)
+```
+
+
+:::: {.columns}
+
+::: {.column}
+**Geographic coordinates**
+```{r, purl=FALSE,echo=FALSE, warning=FALSE, fig.height=6, fig.width=6}
+tm1
+```
+:::
+
+::: {.column}
+**Projected coordinates**
+```{r, purl=FALSE,echo=FALSE, warning=FALSE, fig.height=6, fig.width=6}
+tm2
+```
+:::
+
+::::
+
+<!-- https://mdsumner.github.io/2016/01/26/Three_Projections.html -->
 
 ## Data sources
 
@@ -352,19 +398,59 @@ plot(srtm)
 ![hypertidy-verse - https://github.com/hypertidy](figs/hypertidy.png)
 
 
+## {supercells}
+
+```{r}
+#| message: false
+library(supercells)
+library(terra)
+s = rast(system.file("ex/logo.tif", package = "terra"))   
+sc = supercells(s, 500, compactness = 50, transform = "to_LAB")
+```
+
+:::: {.columns}
+::: {.column}
+
+```{r}
+#| echo: false
+#| fig-height: 8
+plotRGB(s); plot(vect(sc), border = "red", add = TRUE)
+```
+
+:::
+
+::: {.column}
+
+```{r}
+#| echo: false
+#| fig-height: 8
+rgb_to_hex = function(x){
+  apply(t(x), 2, function(x) rgb(x[1], x[2], x[3], maxColorValue = 255))
+}
+avg_colors = rgb_to_hex(sf::st_drop_geometry(sc[4:6]))
+plotRGB(s); plot(vect(sc), col = avg_colors, add = TRUE)
+```
+
+:::
+::::
+
+<!-- add description -->
+
 ---
 
 ![](figs/supercells.png)
 
----
+
+## {background-image="figs/web1.jpg" background-size="cover"}
 
 <!-- Spiderweb of interconnection -->
-<!-- small -->
 
----
 
-<!-- Spiderweb of interconnection -->
-<!-- large -->
+["Spidery Fence" (CC BY-NC-SA 2.0) by Theen ...](https://www.flickr.com/photos/theenmoy/22969338962)
+
+## {background-image="figs/web2.jpg" background-size="cover"}
+
+["world’s largest spider web" (CC BY-NC-SA 2.0) by bluehurricane](https://www.flickr.com/photos/bluehurricane/1317521644)
 
 ---
 
@@ -391,31 +477,181 @@ plot(dg, legendPosition = c(-1, -1), vertex.size = 10, cex = 0.7)
 
 # Chapter 3: Reproducible analysis
 
-<!-- ladder -->
-<!-- over space and time -->
+## Reproduciblity spectrum
+
+:::: {.columns}
+::: {.column}
+![Based on: https://doi.org/10.1126/science.1213847](figs/ladder1.png){height="800"}
+:::
+
+::: {.column}
+- Reproducible/Replicable
+- Not only for publications!
+:::
+
+::::
+
+## Yes, but why?
+
+:::: {.columns}
+::: {.column}
+![](figs/ladder2.png)
+:::
+
+::: {.column}
+Internal and external reasons
+:::
+
+::::
+
+
+<!-- https://annakrystalli.me/talks/r-in-repro-research-dc.html#12 -->
+
+<!-- https://the-turing-way.netlify.app/reproducible-research/overview/overview-benefit.html -->
+
+## Self-reproduciblity
+
+:::: {.columns}
+::: {.column}
+- To reproduce
+- To replicate
+- To fix/update/modify
+:::
+
+::: {.column}
+- To extend
+- To share
+- (To not repeat ourselves)
+:::
+
+::::
+
+<!-- ![](figs/timetravel.jpeg){.r-stretch fig-align="center"} -->
+![](figs/timetravel2.png){.r-stretch fig-align="center"}
+
+
+## External reproduciblity
+
+- Reproducible
+- Robust
+- Transparent
+- Reusable
+- Shareable
+
+[Putting the R into Reproducible Research](https://annakrystalli.me/talks/r-in-repro-research-dc.html):
 <!-- https://annakrystalli.me/talks/r-in-repro-research-dc.html#122 -->
 <!-- https://kbroman.org/knitr_knutshell/pages/reproducible.html -->
 
+<!-- more markus konkol -->
+
 # Chapter 4: Reproducible geocomputation
 
-## a
+<!-- https://annakrystalli.me/talks/r-in-repro-research-dc.html#1 -->
 
-![](figs/mypap.png)
+## Story of my life
 
-<!-- issue: human memory -->
+:::: {.columns}
+::: {.column width="50%"}
+![](figs/mypap.png){fig-align="center"}
+:::
+
+::: {.column}
+
+- **Issue:** human memory
+- http://dx.doi.org/10.2478/quageo-2014-0005
+- **Solution:** code!
+
+:::
+
+::::
 
 ## R code
 
-![](figs/mt-gears.gif)
+:::: {.columns}
+::: {.column width="60%"}
+```{r}
+library(terra)
+library(supercells)
+# setwd("")
+s <- rast(system.file("ex/logo.tif", package = "terra"))   
+sc = supercells(s, 500, compactness = 50,transform='to_LAB')
+sck = kmeans(sf::st_drop_geometry(sc[4:6]), centers = 10)
+plot(sf::st_geometry(sc[0]), col = sck$cluster)
+```
+:::
+
+::: {.column width="40%"}
+- **Issue:** working directory
+- **Issue:** code style
+- **Issue:** randomness
+- **Issue:** temporary objects
+:::
+::::
+
+## R code
+
+- **Issue:** packages (and their dependencies) versions
+
+![](figs/mt-gears.gif){fig-align="center"}
+
+
+## R code
+
+<!-- improve the code above -->
+
+RStudio: File > New Project > New Directory -> New Project -> ...
+
+<!-- relative paths -->
+
+<!-- clear environment + Restart R -->
 
 ## {renv}
 
+https://rstudio.github.io/renv/
+
+:::: {.columns}
+::: {.column width="50%"}
+```{r}
+#| echo: false
+knitr::include_url("https://rstudio.github.io/renv/")
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+knitr::include_url("https://rstudio.github.io/renv/articles/renv.html")
+```
+:::
+::::
+
 <!-- issue: software versions, both external and R -->
 
-## {targets}
+## Version control
 
-<!-- issue: large data, computionlay demanding operations -->
-<!-- terra pointers -->
+:::: {.columns}
+::: {.column width="50%"}
+- **Issue:** what if the older version was better?
+- **Issue:** backup copy
+- **Issue:** sharing
+- **Issue:** collaborating
+:::
+
+::: {.column width="50%"}
+Git
+GitHub/GitLab
+<!-- add logos/comments -->
+<!-- add resources? -->
+:::
+::::
+
+## Version control
+
+<!-- add gif! -->
+
+## Version control
+
+<!-- geocompr -->
 
 ## Literate programming
 
@@ -423,14 +659,87 @@ plot(dg, legendPosition = c(-1, -1), vertex.size = 10, cex = 0.7)
 <!-- word example? -->
 <!-- rmarkdown/quarto -->
 
+<!-- mention absolute/relative paths -->
+<!-- mention R projects -->
+
+## Literate programming
+
+<!-- geocompr -->
+
+## {targets}
+
+- **Issue:** large data
+- **Issue:** computationaly demanding operations
+
+## {targets}
+
+<!-- terra pointers -->
+<!-- large data storage... -->
+
+
+
 ## R packages
+
+```{dot d3}
+#| echo: FALSE,
+#| fig-width: 12,
+#| fig-height: 8
+digraph G3 {
+   layout=dot
+   rankdir=LR
+   
+   node [shape = rectangle];
+   rec1 [label = "R code"];
+   rec2 [label = "R script"];
+   rec3 [label = "R function"];
+   rec4 [label = "R function"];
+   rec5 [label = "R function"];
+   rec6 [label = "R function"];
+   rec7 [label = "R package"];
+   
+   rec1 -> rec2;
+   rec2 -> rec3;
+   rec2 -> rec4;
+   rec2 -> rec5;
+   rec2 -> rec6;
+   rec3 -> rec7;
+   rec4 -> rec7;
+   rec5 -> rec7;
+   rec6 -> rec7;
+   }
+```
 
 <!-- repetition -->
 
+## R packages
+
+<!-- gif -->
+
+https://r-pkgs.org/
+
+
+## R packages
+
+:::: {.columns}
+::: {.column}
+<!-- supercells -->
+:::
+
+::: {.column}
+<!-- spData -->
+<!-- geocompkg -->
+:::
+::::
+
 ## Docker
 
+https://hub.docker.com/r/geocompr/geocompr
+
+
+## Docker
 
 <!-- Binder -->
+<!-- https://github.com/Robinlovelace/geocompr -->
 
 ## CI/CD
 
