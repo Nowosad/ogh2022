@@ -1,6 +1,6 @@
 ---
 title: "Geocomputation with R's guide <br>to reproducible <br>spatial data analysis"
-author: "Jakub Nowosad, https://jakubnowosad.com/"
+author: "Jakub Nowosad, <https://jakubnowosad.com/>"
 institute: "OpenGeoHub Summer School 2022"
 date: "2022-08-30"
 date-format: iso
@@ -13,6 +13,7 @@ format:
     height: 900
     footer: "[jakubnowosad.com/ogh2022](https://jakubnowosad.com/ogh2022/)"
     transition: none
+    preview-links: true
 ---
 
 # Chapter 1: Geocomputation
@@ -206,13 +207,66 @@ tm2
 
 ## Data sources
 
-<!-- Źródła danych, pliki, servery, stac, gee, closed and open,  -->
-<!-- zarr, cog, parquet, geoarrow -->
-<!-- https://t.co/ra3O5HiwjR -->
+Software databases: ![](figs/gis1.png){width="700px" fig-align="center"}
 
-## Data processing
+File formats: ![](figs/gis2.png){width="700px" fig-align="center"}
 
-## Basic vector operations
+::: aside
+Source: <https://r-spatial.org/2016/11/29/openeo.html>
+:::
+
+## Data sources
+
+```{r formats, echo=FALSE}
+file_formats1 = tibble::tribble(~Name, ~Extension, ~Info, ~Type, ~Model, 
+                         "ESRI Shapefile", ".shp (the main file)", "Popular format consisting of at least three files. No support for: files > 2GB;  mixed types; names > 10 chars; cols > 255.", "Vector", "Partially open",
+                         "GeoJSON", ".geojson", "Extends the JSON exchange format by including a subset of the simple feature representation; mostly used for storing coordinates in longitude and latitude; it is extended by the TopoJSON format", "Vector", "Open",
+                         "KML", ".kml", "XML-based format for spatial visualization, developed for use with Google Earth. Zipped KML file forms the KMZ format.", "Vector", "Open",
+                         "GPX", ".gpx", "XML schema created for exchange of GPS data.", "Vector", "Open",
+                         "FlatGeobuf", ".fgb", "Single file format allowing for quick reading and writing of vector data. Has streaming capabilities.", "Vector", "Open")
+file_formats2 = tibble::tribble(~Name, ~Extension, ~Info, ~Type, ~Model, 
+                         "GeoTIFF", ".tif/.tiff", "Popular raster format. A TIFF file containing additional spatial metadata.", "Raster", "Open",
+                         "Arc ASCII", ".asc", "Text format where the first six lines represent the raster header, followed by the raster cell values arranged in rows and columns.", "Raster", "Open",
+                         "SQLite/SpatiaLite", ".sqlite", "Standalone  relational database, SpatiaLite is the spatial extension of SQLite.", "Vector and raster", "Open",
+                         "ESRI FileGDB", ".gdb", "Spatial and nonspatial objects created by ArcGIS. Allows: multiple feature classes; topology. Limited support from GDAL.", "Vector and raster", "Proprietary",
+                         "GeoPackage", ".gpkg", "Lightweight database container based on SQLite allowing an easy and platform-independent exchange of geodata", "Vector and (very limited) raster", "Open"
+                         )
+```
+
+::::{.columns}
+:::{.column}
+```{r formats1, echo=FALSE}
+knitr::kable(dplyr::select(file_formats1, -Info), booktabs = TRUE) 
+```
+Selected spatial file formats
+:::
+
+:::{.column}
+```{r formats2, echo=FALSE}
+knitr::kable(dplyr::select(file_formats2, -Info), booktabs = TRUE) 
+```
+:::
+::::
+
+## Data sources
+
+GDAL:
+
+![Source: https://r-spatial.org/2016/11/29/openeo.html](figs/gis3.png)
+
+## Data sources -- new developments
+
+**SpatioTemporal Asset Catalog (STAC)** -- a general description format for spatiotemporal data that is used to describe a variety of datasets on cloud platforms including imagery, synthetic aperture radar (SAR) data, and point clouds.
+
+**Cloud Optimized GeoTIFF (COG)** -- raster objects saved as COGs can be hosted on HTTP servers, so other people can read only parts of the file without downloading the whole file
+
+**Other new file formats** -- [GeoParquet](https://github.com/opengeospatial/geoparquet), [GeoArrow](https://github.com/paleolimbot/geoarrow), [Zarr](https://gdal.org/drivers/raster/zarr.html)
+
+::: aside
+<https://geocompr.robinlovelace.net/gis.html#stac-cogs-and-data-cubes-in-the-cloud>, <https://dewey.dunnington.ca/post/2022/building-bridges-arrow-parquet-and-geospatial-computing/>
+:::
+
+## Data processing -- basic vector operations
 
 - Simplification
 - Intersect
@@ -221,7 +275,7 @@ tm2
 - Centroids
 - Buffers
 
-## Map algebra
+## Data processing -- map algebra
 
 Used for a various task related to spatial raster data.
 
@@ -232,7 +286,7 @@ It can be divided into four groups:
 3. **Zonal operations** - to summarize raster values for some zones (usually irregular areas)
 4. **Global** - to summarize raster values for one or several rasters
 
-## Raster-vector interactions
+## Data processing -- raster-vector interactions
 
 1. Raster cropping and masking
 2. Raster extraction - by points, lines, and polygons
@@ -243,6 +297,8 @@ It can be divided into four groups:
 
 ## Spatial data analysis
 
+::::{.columns}
+:::{.column}
 ```{dot}
 #| echo = FALSE
 digraph G {
@@ -266,12 +322,9 @@ digraph G {
      rec5 -> cir1;
      }
 ```
+:::
 
-*(incomplete list)*
-
-## Spatial data analysis
-
-
+:::{.column}
 ```{dot d2}
 #| echo = FALSE
 digraph G2 {
@@ -299,7 +352,10 @@ digraph G2 {
    rec7 -> cir1;
    }
 ```
-*(incomplete list)*
+:::
+::::
+
+*(incomplete lists)*
 
 ## Geocomputational methods
 
@@ -333,7 +389,7 @@ digraph G2 {
 - [{spatstat}](http://spatstat.org/), [{spdep}](https://github.com/r-spatial/spdep), [{spatialreg}](https://github.com/r-spatial/spatialreg), [{dismo}](https://github.com/rspatial/dismo), [{landscapemetrics}](https://github.com/r-spatialecology/landscapemetrics), [{RStoolbox}](http://bleutner.github.io/RStoolbox/rstbx-docu/RStoolbox.html), [{rayshader}](https://github.com/tylermorganwall/rayshader), [{gdalcubes}](https://github.com/appelmar/gdalcubes_R), [{sfnetworks}](https://github.com/luukvdmeer/sfnetworks) - different types of spatial data analysis
 - many more...
 
-Visit https://cran.r-project.org/view=Spatial to get an overview of different spatial tasks that can be solved using R.
+Visit <https://cran.r-project.org/view=Spatial> to get an overview of different spatial tasks that can be solved using R.
 
 ---
 
@@ -379,7 +435,7 @@ plot(srtm)
 
 ![](figs/terra-libs.png)
 
----
+## {background-image="figs/bingo.jpg" background-opacity=0.2}
 
 ::::{.columns}
 :::{.column}
@@ -595,7 +651,7 @@ Source: ["Putting the R into Reproducible Research" by Anna Krystalli](https://a
 ::: {.column}
 
 - **Issue:** human memory
-- http://dx.doi.org/10.2478/quageo-2014-0005
+- <http://dx.doi.org/10.2478/quageo-2014-0005>
 - **Solution:** code!
 
 :::
@@ -628,12 +684,23 @@ plot(sf::st_geometry(sc[0]), col = sck$cluster)
 ## R code
 
 <!-- improve the code above -->
-
 RStudio: File > New Project > New Directory -> New Project -> ...
 
-<!-- relative paths -->
+Absolute vs relative paths
 
-<!-- clear environment + Restart R -->
+:::: {.columns}
+::: {.column}
+![](figs/rproj1.png)
+:::
+
+::: {.column .incremental}
+![](figs/rproj2.png)
+:::
+::::
+
+Also: clear environment + restart R
+
+## {reprex}
 
 ## R code
 
@@ -643,21 +710,22 @@ RStudio: File > New Project > New Directory -> New Project -> ...
 
 ## {renv}
 
-https://rstudio.github.io/renv/
-
 :::: {.columns}
 ::: {.column width="50%"}
+<https://rstudio.github.io/renv/>
 ```{r}
 #| echo: false
-knitr::include_url("https://rstudio.github.io/renv/")
+knitr::include_url("https://rstudio.github.io/renv/", height = "650px")
 ```
 :::
 
 ::: {.column width="50%"}
-```{r}
-#| echo: false
-knitr::include_url("https://rstudio.github.io/renv/articles/renv.html")
-```
+1. `renv::init(`) to initialize a new project-local environment with a private R library
+2. Work in the project as normal, installing and removing new R packages
+3. `renv::snapshot()` to save the state of the project library to the lockfile (`renv.lock`)
+4. Continue working on your project
+5. Call `renv::snapshot()` again to save the state of your project or `renv::restore()` to revert to the previous state as encoded in the lockfile
+
 :::
 ::::
 
@@ -674,9 +742,15 @@ knitr::include_url("https://rstudio.github.io/renv/articles/renv.html")
 :::
 
 ::: {.column width="50%" .incremental}
-Git
-GitHub/GitLab
-<!-- add logos/comments -->
+
+![](figs/gitlogo.png)
+
+![](figs/rgit.png)
+
+![](figs/githublogo.png)
+
+![](figs/gitlablogo.png)
+
 <!-- add resources? -->
 :::
 ::::
@@ -687,7 +761,7 @@ GitHub/GitLab
 
 ## Version control
 
-<!-- geocompr -->
+![](figs/geocompr-github.png)
 
 ## Literate programming
 
@@ -695,12 +769,10 @@ GitHub/GitLab
 <!-- word example? -->
 <!-- rmarkdown/quarto -->
 
-<!-- mention absolute/relative paths -->
-<!-- mention R projects -->
 
 ## Literate programming
 
-<!-- geocompr -->
+![](figs/rmd-github.png)
 
 ## {targets}
 
@@ -709,10 +781,9 @@ GitHub/GitLab
 
 ## {targets}
 
+<!-- create example targets -->
 <!-- terra pointers -->
 <!-- large data storage... -->
-
-
 
 ## R packages
 
@@ -750,39 +821,73 @@ digraph G3 {
 
 <!-- gif -->
 
-https://r-pkgs.org/
+<https://r-pkgs.org/>
+<https://indrajeetpatil.github.io/awesome-r-pkgtools/>
 
 
 ## R packages
 
 :::: {.columns}
-::: {.column}
-<!-- supercells -->
+::: {.column width="50%"}
+```{r}
+#| echo: false
+knitr::include_url("https://github.com/Nowosad/supercells")
+```
 :::
 
-::: {.column}
-<!-- spData -->
-<!-- geocompkg -->
+::: {.column width="50%"}
+```{r}
+#| echo: false
+knitr::include_url("https://github.com/Nowosad/spData")
+knitr::include_url("https://github.com/geocompr/geocompkg")
+```
 :::
 ::::
 
 ## Docker
 
-https://hub.docker.com/r/geocompr/geocompr
+<https://docs.docker.com/get-started/>
 
+![](figs/geocompr-docker1.png)
 
-## Docker
+<https://hub.docker.com/r/geocompr/geocompr>
 
-<!-- Binder -->
-<!-- https://github.com/Robinlovelace/geocompr -->
+---
+
+:::: {.columns}
+::: {.column}
+![](figs/geocompr-docker2.png)
+:::
+
+::: {.column}
+Also see: ![](figs/binder.png)
+<https://mybinder.org/v2/gh/robinlovelace/geocompr/main?urlpath=rstudio>
+:::
+::::
 
 ## CI/CD
 
 <!-- it works on my computer -->
 
-
+<!-- more than one tool -->
 <!-- Each tool plus (real life) example -->
 <!-- Gify? -->
+
+
+## CI/CD
+
+<https://github.com/Robinlovelace/geocompr/blob/main/.github/workflows/main.yaml>
+
+:::: {.columns}
+::: {.column}
+![](figs/gha1.png)
+:::
+
+::: {.column}
+![](figs/gha2.png)
+:::
+::::
+
 
 ## Exercises
 
@@ -793,4 +898,4 @@ https://hub.docker.com/r/geocompr/geocompr
 
 # The end
 
-https://jakubnowosad.com/ogh2022/
+<https://jakubnowosad.com/ogh2022/>
