@@ -1,5 +1,5 @@
 ---
-title: "Geocomputation with R's guide <br>to reproducible <br>spatial data analysis"
+title: "Geocomputation with R's guide <br>to reproducible<br>spatial<br>data analysis"
 author: "Jakub Nowosad, <https://jakubnowosad.com/>"
 institute: "OpenGeoHub Summer School 2022"
 date: "2022-08-30"
@@ -368,11 +368,58 @@ digraph G2 {
 
 ## Spatial vizualizations
 
+:::: {.columns}
+
+::: {.column width="30%"}
+
+![](figs/map1.jpeg)
+
+:::
+
+::: {.column width="70%"}
+
+::: {layout="[[1,1.2], [-1, 1.2]]"}
+![](figs/map2.jpeg){width="600"}
+
+![](figs/map3.jpeg){width="500"}
+
+![](figs/map4.jpeg){width="650" fig-align="center"}
+:::
+
+:::
+
+::::
+
+::: aside
+https://30daymapchallenge.com/2021/ <br> @HeatherCh100, @Cchurchili, @@tjukanov, @evelynuuemaa 
+:::
+
 # Chapter 2: Geocomputation with R
 
 ## Ecosystems
 
 <!-- more than one way to solve a problem -->
+<!-- alternative images: french vs english garden -->
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+![](figs/field1.jpg)
+
+["What a lawn" (CC BY-SA 2.0) by heipei ...](https://www.flickr.com/photos/heipei/25718450/)
+
+:::
+
+::: {.column width="50%"}
+
+![](figs/field2.jpg){width="900"}
+
+["A field of flowers" (CC BY-SA 2.0) by Nigel Corby ...](https://www.geograph.org.uk/photo/1389946)
+
+:::
+
+::::
 
 ---
 
@@ -450,12 +497,15 @@ plot(srtm)
 ### Old vs New
 <br><br><br><br><br><br>
 
-### Other R ecosystems
+### [Various R ecosystems](https://geocompr.github.io/post/2021/spatial-classes-conversion/)
 :::
 ::::
 
 
-## Other foundations
+## Other foundations {background-image="figs/Building_foundation.jpg" background-opacity=0.5}
+
+
+<!-- <a title="Tiia Monto, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Building_foundation.jpg"><img width="1024" alt="Building foundation" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Building_foundation.jpg/1024px-Building_foundation.jpg"></a> -->
 
 ---
 
@@ -486,7 +536,9 @@ plot(srtm)
 
 ![hypertidy-verse - https://github.com/hypertidy](figs/hypertidy.png)
 
-## (Dependant) spatial packages
+## (Dependent) spatial packages {background-image="figs/kittens.jpg" background-opacity=0.5}
+
+<!-- https://commons.wikimedia.org/wiki/File:Mother_dog_breast_feeding_two_kittens.jpg -->
 
 ## {supercells}
 
@@ -571,7 +623,7 @@ plot(dg, legendPosition = c(-1, -1), vertex.size = 10, cex = 0.7)
 
 :::: {.columns}
 ::: {.column}
-![Based on: https://doi.org/10.1126/science.1213847](figs/ladder1.png){height="800"}
+![Based on: https://doi.org/10.1126/science.1213847](figs/ladder1.png){height="700"}
 :::
 
 ::: {.column}
@@ -700,7 +752,32 @@ Absolute vs relative paths
 
 Also: clear environment + restart R
 
-## {reprex}
+## {reprex}: *repr*oducible *ex*ample
+
+:::: {.columns}
+::: {.column width="70%" .incremental}
+
+- **Why:** to ask a question; to report a bug; to fix a bug; to showcase some examples; ...
+
+- **Input:** minimal code allowing to reproduce your problem/example (strip away everything that is not directly related to your problem)
+
+- **Output:** resulting runnable code + output as Markdown (including code results and plots) + (optionally) session info
+:::
+
+::: {.column width="30%"}
+![](figs/reprex.png)
+:::
+::::
+
+
+## {reprex}: *repr*oducible *ex*ample
+
+<iframe width="1600" height="650" src="https://www.youtube.com/embed/35suhGR53wQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+::: aside
+<https://reprex.tidyverse.org/>, <https://community.rstudio.com/t/faq-whats-a-reproducible-example-reprex-and-how-do-i-create-one/5219>
+:::
+
 
 ## R code
 
@@ -713,10 +790,7 @@ Also: clear environment + restart R
 :::: {.columns}
 ::: {.column width="50%"}
 <https://rstudio.github.io/renv/>
-```{r}
-#| echo: false
-knitr::include_url("https://rstudio.github.io/renv/", height = "650px")
-```
+
 :::
 
 ::: {.column width="50%"}
@@ -734,24 +808,24 @@ knitr::include_url("https://rstudio.github.io/renv/", height = "650px")
 ## Version control
 
 :::: {.columns}
-::: {.column width="50%"}
+::: {.column width="30%"}
 - **Issue:** what if the older version was better?
 - **Issue:** backup copy
 - **Issue:** sharing
 - **Issue:** collaborating
+
+
+![](figs/gitlogo.png){width="500"}
 :::
 
-::: {.column width="50%" .incremental}
+::: {.column width="70%" .incremental}
 
-![](figs/gitlogo.png)
+![](figs/rgit.png){width="900" fig-align="center"}
 
-![](figs/rgit.png)
+![](figs/githublogo.png){width="700" fig-align="center"}
 
-![](figs/githublogo.png)
+![](figs/gitlablogo.png){width="700" fig-align="center"}
 
-![](figs/gitlablogo.png)
-
-<!-- add resources? -->
 :::
 ::::
 
@@ -761,18 +835,51 @@ knitr::include_url("https://rstudio.github.io/renv/", height = "650px")
 
 ## Version control
 
+:::: {.columns}
+::: {.column width="40%"}
+<https://github.com/Robinlovelace/geocompr>
+:::
+
+::: {.column width="60%"}
 ![](figs/geocompr-github.png)
+:::
+::::
 
-## Literate programming
-
-<!-- sharebility -->
-<!-- word example? -->
-<!-- rmarkdown/quarto -->
-
+::: aside
+<https://happygitwithr.com/>
+:::
 
 ## Literate programming
 
 ![](figs/rmd-github.png)
+
+<https://github.com/Robinlovelace/geocompr/blob/main/06-raster-vector.Rmd>
+
+## Literate programming
+
+![](figs/rmd-github2.png)
+
+<https://geocompr.robinlovelace.net/raster-vector.html>
+
+## Literate programming
+
+:::: {.columns}
+::: {.column width="60%"}
+![Writing Technical Papers with Markdown by Dheepak Krishnamurthy](figs/learningcurve.png)
+:::
+
+::: {.column width="40%" .incremental}
+- **Issue:** create (and update) scientific and technical documents
+- Markdown keeps everything (including text, code, figures, etc.) in one place
+- Markdown supports reproducibility
+- Markdown allows for more complexity (story of my life, again...)
+:::
+::::
+
+::: aside
+<https://rmarkdown.rstudio.com/>, <https://quarto.org/>
+:::
+
 
 ## {targets}
 
@@ -787,9 +894,22 @@ knitr::include_url("https://rstudio.github.io/renv/", height = "650px")
 
 ## R packages
 
+:::: {.columns}
+::: {.column width="50%"}
+- **Issue:** a lot of copy/paste or repeating ourselves
+- **Issue:** no documentation
+:::
+
+::: {.column width="50%"}
+- **Issue:** problem with code sharing
+- **Issue:** problem with example data sharing
+:::
+::::
+
 ```{dot d3}
 //| echo: false
-//| fig-width: 12
+//| fig-width: 10
+//| fig-align: center
 digraph G3 {
    layout=dot
    rankdir=LR
@@ -815,40 +935,72 @@ digraph G3 {
    }
 ```
 
-<!-- repetition -->
-
-## R packages
-
-<!-- gif -->
-
-<https://r-pkgs.org/>
-<https://indrajeetpatil.github.io/awesome-r-pkgtools/>
-
-
 ## R packages
 
 :::: {.columns}
-::: {.column width="50%"}
-```{r}
-#| echo: false
-knitr::include_url("https://github.com/Nowosad/supercells")
-```
+::: {.column width="60%"}
+R packages may serve many purposes...
+
+![](figs/supercells-gh.png)
+<https://github.com/Nowosad/supercells>
 :::
 
-::: {.column width="50%"}
-```{r}
-#| echo: false
-knitr::include_url("https://github.com/Nowosad/spData")
-knitr::include_url("https://github.com/geocompr/geocompkg")
-```
+::: {.column width="35%"}
+![](figs/spData-gh.png)
+<https://github.com/Nowosad/spData>
+![](figs/geocompkg-gh.png)
+<https://github.com/geocompr/geocompkg>
 :::
 ::::
+
+---
+
+### R packages
+
+:::: {.columns}
+::: {.column width="35%"}
+<https://usethis.r-lib.org>
+
+Create a package template:
+
+```{r}
+#| eval: false
+usethis::create_package("mypackage")
+```
+
+Subset of other useful {usethis} functions:
+
+```{r}
+#| eval: false
+use_package("ggplot2", "Suggests")
+use_readme_rmd()
+use_mit_license("My Name")
+use_data(x, y)
+use_news_md()
+use_test("my-test")
+```
+
+<https://r-pkgs.org/>, <https://indrajeetpatil.github.io/awesome-r-pkgtools/>
+:::
+
+::: {.column width="65%"}
+- Creating/modifying code (`R/`)
+- Using the `devtools::load_all()` function, which loads new/modified functions into R session
+- Verifying that the function works as expected using several examples (also adding unit tests)
+- Updating the documentation of the code
+- Generating documentation files using `devtools::document()`
+- Checking if the package has any issues with `devtools::check()`
+- Modifying the software version in the DESCRIPTION file
+- Repeating the above steps
+:::
+::::
+
 
 ## Docker
 
 <https://docs.docker.com/get-started/>
 
-![](figs/geocompr-docker1.png)
+![](figs/geocompr-docker1.png){fig-align="center"}
 
 <https://hub.docker.com/r/geocompr/geocompr>
 
@@ -867,12 +1019,15 @@ Also see: ![](figs/binder.png)
 
 ## CI/CD
 
-<!-- it works on my computer -->
+**Issue:** ...but it works on my computer
+
+CI/CD: continuous integration (CI) and continuous deployment (CD)
 
 <!-- more than one tool -->
 <!-- Each tool plus (real life) example -->
 <!-- Gify? -->
 
+![Source: https://docs.gitlab.com/ee/ci/introduction/](figs/cicd.png)
 
 ## CI/CD
 
@@ -888,6 +1043,7 @@ Also see: ![](figs/binder.png)
 :::
 ::::
 
+<https://geocompr.github.io/post/2022/geocompr-solutions/>
 
 ## Exercises
 
