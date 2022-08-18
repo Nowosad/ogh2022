@@ -4,6 +4,10 @@ author: "Jakub Nowosad, <https://jakubnowosad.com/>"
 institute: "OpenGeoHub Summer School 2022"
 date: "2022-08-30"
 date-format: iso
+title-slide-attributes:
+    data-background-image: "figs/start2.png"
+    data-background-size: cover
+    data-background-opacity: "0.4"
 format:
   n3-revealjs:
     echo: true
@@ -1052,6 +1056,6 @@ CI/CD: continuous integration (CI) and continuous deployment (CD)
 <!-- exercise: -->
 <!-- make the code reproducible -->
 
-# The end
+# The End {background-image="figs/end2.png" background-opacity=0.4 background-size="cover"}
 
 <https://jakubnowosad.com/ogh2022/>
