@@ -18,6 +18,7 @@ format:
     footer: "[jakubnowosad.com/ogh2022](https://jakubnowosad.com/ogh2022/)"
     transition: none
     preview-links: true
+    css: style.css
 ---
 
 # Chapter 1: Geocomputation
@@ -80,7 +81,9 @@ Based on the David O’Sullivan's talk title at the Geocomputation 2019 conferen
 
 > At the turn of the 21st Century it was unrealistic to expect readers to be able to reproduce code examples, due to barriers preventing access to the necessary hardware, software and data
 
----
+## {.v-center-container}
+
+<br><br><br>
 
 ```{r gdsl, echo=FALSE, message=FALSE}
 d = readr::read_csv("data/gis-vs-gds-table.csv")
@@ -240,14 +243,14 @@ file_formats2 = tibble::tribble(~Name, ~Extension, ~Info, ~Type, ~Model,
 ::::{.columns}
 :::{.column}
 ```{r formats1, echo=FALSE}
-knitr::kable(dplyr::select(file_formats1, -Info), booktabs = TRUE) 
+knitr::kable(dplyr::select(file_formats1, -Info, -Type), booktabs = TRUE) 
 ```
 Selected spatial file formats
 :::
 
 :::{.column}
 ```{r formats2, echo=FALSE}
-knitr::kable(dplyr::select(file_formats2, -Info), booktabs = TRUE) 
+knitr::kable(dplyr::select(file_formats2, -Info, -Type), booktabs = TRUE) 
 ```
 :::
 ::::
@@ -610,10 +613,24 @@ set.seed(1)
 plot(dg, legendPosition = c(-1, -1), vertex.size = 10, cex = 0.7)
 ```
 
-<!-- tmap? -->
+## Spatial vizualizations
 
-<!-- My supercells example? -->
-<!-- conversions -->
+<https://r-tmap.github.io/>
+
+```{r}
+#| output-location: column
+#| fig-height: 8
+library(tmap)
+tm_shape(s) +
+  tm_rgb() +
+  tm_shape(sc) +
+  tm_borders(col = "red") +
+  tm_compass(position = c("right", "top")) +
+  tm_layout(main.title = "{supercells}",
+            frame = FALSE)
+```
+
+Also see: `tmap_mode("view")`, {mapview}
 
 ## Exercises
 
@@ -835,7 +852,7 @@ Also: clear environment + restart R
 
 ## Version control
 
-<!-- add gif! -->
+![](figs/combo.gif){fig-align="center"}
 
 ## Version control
 
@@ -884,13 +901,35 @@ Also: clear environment + restart R
 <https://rmarkdown.rstudio.com/>, <https://quarto.org/>
 :::
 
-
 ## {targets}
 
 - **Issue:** large data
 - **Issue:** computationaly demanding operations
+- The {targets} package creates a reproducible workflow
+- It skips costly runtime for tasks that are already up to date
+- It allows to easy parallelization of the tasks
+
+::: aside
+<https://books.ropensci.org/targets/>
+:::
+
 
 ## {targets}
+
+
+:::: {.columns}
+::: {.column width="50%"}
+Before new changes:
+![](figs/tar1.png)
+:::
+
+::: {.column width="50%"}
+After new changes:
+![](figs/tar2.png)
+:::
+::::
+
+<https://github.com/Nowosad/ogh2022-targets>
 
 <!-- create example targets -->
 <!-- terra pointers -->
@@ -1027,10 +1066,6 @@ Also see: ![](figs/binder.png)
 
 CI/CD: continuous integration (CI) and continuous deployment (CD)
 
-<!-- more than one tool -->
-<!-- Each tool plus (real life) example -->
-<!-- Gify? -->
-
 ![Source: https://docs.gitlab.com/ee/ci/introduction/](figs/cicd.png)
 
 ## CI/CD
@@ -1056,6 +1091,6 @@ CI/CD: continuous integration (CI) and continuous deployment (CD)
 <!-- exercise: -->
 <!-- make the code reproducible -->
 
-# The End {background-image="figs/end2.png" background-opacity=0.4 background-size="cover"}
+# The end {background-image="figs/end2.png" background-opacity=0.4 background-size="cover"}
 
 <https://jakubnowosad.com/ogh2022/>

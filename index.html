@@ -9,9 +9,9 @@
 <link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-99.9.9">
 
-  <meta name="author" content="Jakub Nowosad">
-  <meta name="dcterms.date" content="2022-08-03">
-  <title>Geocomputation with R’s guide  to reproducible  spatial data analysis</title>
+  <meta name="author" content="Jakub Nowosad, https://jakubnowosad.com/">
+  <meta name="dcterms.date" content="2022-08-30">
+  <title>Geocomputation with R’s guide  to reproducible spatial data analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -24,8 +24,73 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #24292e;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #24292e; } /* Normal */
+    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
+    code span.an { color: #6a737d; } /* Annotation */
+    code span.at { color: #d73a49; } /* Attribute */
+    code span.bn { color: #005cc5; } /* BaseN */
+    code span.bu { color: #d73a49; } /* BuiltIn */
+    code span.cf { color: #d73a49; } /* ControlFlow */
+    code span.ch { color: #032f62; } /* Char */
+    code span.cn { color: #005cc5; } /* Constant */
+    code span.co { color: #6a737d; } /* Comment */
+    code span.cv { color: #6a737d; } /* CommentVar */
+    code span.do { color: #6a737d; } /* Documentation */
+    code span.dt { color: #d73a49; } /* DataType */
+    code span.dv { color: #005cc5; } /* DecVal */
+    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
+    code span.ex { color: #d73a49; font-weight: bold; } /* Extension */
+    code span.fl { color: #005cc5; } /* Float */
+    code span.fu { color: #6f42c1; } /* Function */
+    code span.im { color: #032f62; } /* Import */
+    code span.in { color: #6a737d; } /* Information */
+    code span.kw { color: #d73a49; } /* Keyword */
+    code span.op { color: #24292e; } /* Operator */
+    code span.ot { color: #6f42c1; } /* Other */
+    code span.pp { color: #d73a49; } /* Preprocessor */
+    code span.re { color: #6a737d; } /* RegionMarker */
+    code span.sc { color: #005cc5; } /* SpecialChar */
+    code span.ss { color: #032f62; } /* SpecialString */
+    code span.st { color: #032f62; } /* String */
+    code span.va { color: #e36209; } /* Variable */
+    code span.vs { color: #032f62; } /* VerbatimString */
+    code span.wa { color: #ff5555; } /* Warning */
   </style>
   <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css" id="theme">
+  <link rel="stylesheet" href="style.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -319,17 +384,1224 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="center">
-  <h1 class="title">Geocomputation with R’s guide <br>to reproducible <br>spatial data analysis</h1>
-  <p class="author">Jakub Nowosad</p>
-  <p class="institute">https://jakubnowosad.com/</p>
-  <p class="date">2022-08-03</p>
+<section id="title-slide" data-background-image="figs/start2.png" data-background-opacity="0.4" data-background-size="cover" class="center">
+  <h1 class="title">Geocomputation with R’s guide <br>to reproducible<br>spatial<br>data analysis</h1>
+  <p class="author">Jakub Nowosad, <a href="https://jakubnowosad.com/" class="uri">https://jakubnowosad.com/</a></p>
+  <p class="institute">OpenGeoHub Summer School 2022</p>
+  <p class="date">2022-08-30</p>
 </section>
 
+<section>
+<section id="chapter-1-geocomputation" class="title-slide slide level1 center">
+<h1>Chapter 1: Geocomputation</h1>
+<!-- 1.5h + 1.5h -->
+<!-- 100 slides top! -->
+</section>
 <section class="slide level2">
 
+<!-- openshaw -->
+<!-- currently an obvious thing -->
+<!-- what it involves -->
+<!-- connection between different fields -->
+<div class="r-fit-text">
+<p>(geo)spati|graphic)*(al)*</p>
+<p>( )*(stuff|data|comput|inform)*(ing|ation)*</p>
+<p>(science|systems|theory|analysis)*</p>
+</div>
+
+<aside><div>
+<p>Based on the David O’Sullivan’s talk title at the Geocomputation 2019 conference</p>
+</div></aside></section>
+<section class="slide level2">
+
+<div class="r-fit-text">
+<p>(<strong>geo</strong>)spati|graphic)*(al)*</p>
+<p>( )*(stuff|data|<strong>comput</strong>|inform)*(ing|<strong>ation</strong>)*</p>
+<p>(science|systems|theory|analysis)*</p>
+</div>
+
+<aside><div>
+<p>Based on the David O’Sullivan’s talk title at the Geocomputation 2019 conference</p>
+</div></aside></section>
+<section class="slide level2">
+
+<div class="columns">
+<div class="column" style="width:40%;">
+<blockquote>
+<p>GeoComputation is about using the various different types of geodata and about developing relevant geo-tools within the overall context of a ‘scientific’ approach (Openshaw 2000).</p>
+</blockquote>
+</div><div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figs/s.openshaw.png" width="450"></p>
+</figure>
+</div>
+</div>
+</div>
+<!-- - But we do differ from early definitions in one important way: -->
+<blockquote>
+<p>At the turn of the 21st Century it was unrealistic to expect readers to be able to reproduce code examples, due to barriers preventing access to the necessary hardware, software and data</p>
+</blockquote>
+</section>
+<section id="section" class="slide level2 v-center-container">
+<h2></h2>
+<p><br><br><br></p>
+<div class="cell">
+<div class="cell-output-display">
+<table>
+<caption>Differences in emphasis between software packages (Graphical User Interface (GUI) of Geographic Information Systems (GIS) and R).</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Attribute</th>
+<th style="text-align: left;">Desktop GIS (GUI)</th>
+<th style="text-align: left;">R</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Home disciplines</td>
+<td style="text-align: left;">Geography</td>
+<td style="text-align: left;">Computing, Statistics</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Software focus</td>
+<td style="text-align: left;">Graphical User Interface</td>
+<td style="text-align: left;">Command line</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Reproducibility</td>
+<td style="text-align: left;">Minimal</td>
+<td style="text-align: left;">Maximal</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- This book is motivated by the importance of reproducibility\index{reproducibility} for scientific research (see the note below). -->
+<!-- It aims to make reproducible geographic data analysis\index{geographic data analysis} workflows more accessible, and demonstrate the power of open geospatial software available from the command-line. -->
+</section></section>
+<section>
+<section id="gis-applications" class="title-slide slide level1 center">
+<h1>GIS Applications</h1>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-1-1.png" width="960"></p>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-2-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-models" class="slide level2">
+<h2>Data models</h2>
+<p>Traditionally, spatial data is described by two basic data models:</p>
+<ul>
+<li>vector data model aimed at representing the world using points, lines, and polygons</li>
+<li>raster data model focused on representing surfaces</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="vector-data-models">Vector data model(s)</h3>
+
+<img data-src="figs/vector-data-model-1.png" class="r-stretch quarto-figure-center"><p class="caption">Source: https://r-tmap.github.io/</p></section>
+<section class="slide level2">
+
+<h3 id="raster-data-models">Raster data model(s)</h3>
+
+<img data-src="figs/raster-intro-1.png" class="r-stretch quarto-figure-center"><p class="caption">Source: https://r-tmap.github.io/</p></section>
+<section class="slide level2">
+
+<div class="columns">
+<div class="column">
+<h3 id="spatial-data-cubes">Spatial data cubes</h3>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figs/vector-data-cubes-1.png" height="400"></p>
+<p></p><figcaption>Source: https://r-tmap.github.io/</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figs/raster-data-cubes-1.png" height="300"></p>
+<p></p><figcaption>Source: https://r-tmap.github.io/</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="point-clouds">Point clouds</h3>
+
+<img data-src="figs/point-cloud-rotating.gif" class="r-stretch quarto-figure-center"><p class="caption">Source: https://github.com/Jean-Romain/lidR</p></section>
+<section id="coordinate-reference-systems" class="slide level2">
+<h2>Coordinate reference systems</h2>
+<div class="cell">
+
+</div>
+<div class="columns">
+<div class="column">
+<p><strong>Geographic coordinates</strong></p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-4-1.png" width="576"></p>
+</div>
+</div>
+</div><div class="column">
+<p><strong>Projected coordinates</strong></p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-5-1.png" width="576"></p>
+</div>
+</div>
+</div>
+</div>
+<!-- https://mdsumner.github.io/2016/01/26/Three_Projections.html -->
+</section>
+<section id="data-sources" class="slide level2">
+<h2>Data sources</h2>
+<p>Software databases: <img data-src="figs/gis1.png" data-fig-align="center" width="700"></p>
+<p>File formats: <img data-src="figs/gis2.png" data-fig-align="center" width="700"></p>
+
+<aside><div>
+<p>Source: <a href="https://r-spatial.org/2016/11/29/openeo.html" class="uri">https://r-spatial.org/2016/11/29/openeo.html</a></p>
+</div></aside></section>
+<section id="data-sources-1" class="slide level2">
+<h2>Data sources</h2>
+<div class="cell">
+
+</div>
+<div class="columns">
+<div class="column">
+<div class="cell">
+<div class="cell-output-display">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Extension</th>
+<th style="text-align: left;">Model</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ESRI Shapefile</td>
+<td style="text-align: left;">.shp (the main file)</td>
+<td style="text-align: left;">Partially open</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GeoJSON</td>
+<td style="text-align: left;">.geojson</td>
+<td style="text-align: left;">Open</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">KML</td>
+<td style="text-align: left;">.kml</td>
+<td style="text-align: left;">Open</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GPX</td>
+<td style="text-align: left;">.gpx</td>
+<td style="text-align: left;">Open</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FlatGeobuf</td>
+<td style="text-align: left;">.fgb</td>
+<td style="text-align: left;">Open</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Selected spatial file formats</p>
+</div><div class="column">
+<div class="cell">
+<div class="cell-output-display">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Extension</th>
+<th style="text-align: left;">Model</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">GeoTIFF</td>
+<td style="text-align: left;">.tif/.tiff</td>
+<td style="text-align: left;">Open</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Arc ASCII</td>
+<td style="text-align: left;">.asc</td>
+<td style="text-align: left;">Open</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SQLite/SpatiaLite</td>
+<td style="text-align: left;">.sqlite</td>
+<td style="text-align: left;">Open</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ESRI FileGDB</td>
+<td style="text-align: left;">.gdb</td>
+<td style="text-align: left;">Proprietary</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GeoPackage</td>
+<td style="text-align: left;">.gpkg</td>
+<td style="text-align: left;">Open</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-sources-2" class="slide level2">
+<h2>Data sources</h2>
+<p>GDAL:</p>
+
+<img data-src="figs/gis3.png" class="r-stretch quarto-figure-center"><p class="caption">Source: https://r-spatial.org/2016/11/29/openeo.html</p></section>
+<section id="data-sources-new-developments" class="slide level2">
+<h2>Data sources – new developments</h2>
+<p><strong>SpatioTemporal Asset Catalog (STAC)</strong> – a general description format for spatiotemporal data that is used to describe a variety of datasets on cloud platforms including imagery, synthetic aperture radar (SAR) data, and point clouds.</p>
+<p><strong>Cloud Optimized GeoTIFF (COG)</strong> – raster objects saved as COGs can be hosted on HTTP servers, so other people can read only parts of the file without downloading the whole file</p>
+<p><strong>Other new file formats</strong> – <a href="https://github.com/opengeospatial/geoparquet">GeoParquet</a>, <a href="https://github.com/paleolimbot/geoarrow">GeoArrow</a>, <a href="https://gdal.org/drivers/raster/zarr.html">Zarr</a></p>
+
+<aside><div>
+<p><a href="https://geocompr.robinlovelace.net/gis.html#stac-cogs-and-data-cubes-in-the-cloud" class="uri">https://geocompr.robinlovelace.net/gis.html#stac-cogs-and-data-cubes-in-the-cloud</a>, <a href="https://dewey.dunnington.ca/post/2022/building-bridges-arrow-parquet-and-geospatial-computing/" class="uri">https://dewey.dunnington.ca/post/2022/building-bridges-arrow-parquet-and-geospatial-computing/</a></p>
+</div></aside></section>
+<section id="data-processing-basic-vector-operations" class="slide level2">
+<h2>Data processing – basic vector operations</h2>
+<ul>
+<li>Simplification</li>
+<li>Intersect</li>
+<li>Additional topological relations</li>
+<li>Spatial joins</li>
+<li>Centroids</li>
+<li>Buffers</li>
+</ul>
+</section>
+<section id="data-processing-map-algebra" class="slide level2">
+<h2>Data processing – map algebra</h2>
+<p>Used for a various task related to spatial raster data.</p>
+<p>It can be divided into four groups:</p>
+<ol type="1">
+<li><strong>Local</strong> - per-cell operations</li>
+<li><strong>Focal (neighborhood operations)</strong> - most often the output cell value is the result of a 3 x 3 input cell block</li>
+<li><strong>Zonal operations</strong> - to summarize raster values for some zones (usually irregular areas)</li>
+<li><strong>Global</strong> - to summarize raster values for one or several rasters</li>
+</ol>
+</section>
+<section id="data-processing-raster-vector-interactions" class="slide level2">
+<h2>Data processing – raster-vector interactions</h2>
+<ol type="1">
+<li>Raster cropping and masking</li>
+<li>Raster extraction - by points, lines, and polygons</li>
+<li>Rasterization - points, lines, polygons to rasters</li>
+<li>Vectorization - rasters to polygons or contours</li>
+</ol>
+<!-- reprojections? -->
+</section>
+<section id="spatial-data-analysis" class="slide level2">
+<h2>Spatial data analysis</h2>
+<div class="columns">
+<div class="column">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<p>
+<svg width="559" height="466" viewbox="0.00 0.00 559.05 466.40" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style=" display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 462.4)">
+<title>
+G
+</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-462.4 555.05,-462.4 555.05,4 -4,4"></polygon> <!-- cir1 --> <g id="node1" class="node">
+<title>
+cir1
+</title>
+<ellipse fill="none" stroke="black" cx="257.33" cy="-227.82" rx="71.27" ry="71.27"></ellipse> <text text-anchor="middle" x="257.33" y="-223.62" font-family="Times,serif" font-size="14.00">Spatial analysis</text> </g> <!-- rec1 --> <g id="node2" class="node">
+<title>
+rec1
+</title>
+<polygon fill="none" stroke="black" points="551.11,-245.82 407.87,-245.82 407.87,-209.82 551.11,-209.82 551.11,-245.82"></polygon> <text text-anchor="middle" x="479.49" y="-223.62" font-family="Times,serif" font-size="14.00">Spatial autocorrelation</text> </g> <!-- rec1&#45;&gt;cir1 --> <g id="edge1" class="edge">
+<title>
+rec1-&gt;cir1
+</title>
+<path fill="none" stroke="black" d="M407.67,-227.82C385.79,-227.82 361.58,-227.82 339.1,-227.82"></path> <polygon fill="black" stroke="black" points="338.91,-224.32 328.91,-227.82 338.91,-231.32 338.91,-224.32"></polygon> </g> <!-- rec2 --> <g id="node3" class="node">
+<title>
+rec2
+</title>
+<polygon fill="none" stroke="black" points="386.76,-458.4 256.92,-458.4 256.92,-422.4 386.76,-422.4 386.76,-458.4"></polygon> <text text-anchor="middle" x="321.84" y="-436.2" font-family="Times,serif" font-size="14.00">Spatial interpolation</text> </g> <!-- rec2&#45;&gt;cir1 --> <g id="edge2" class="edge">
+<title>
+rec2-&gt;cir1
+</title>
+<path fill="none" stroke="black" d="M316.34,-422.28C308.56,-396.66 293.89,-348.29 281.12,-306.2"></path> <polygon fill="black" stroke="black" points="284.42,-305.05 278.17,-296.49 277.73,-307.08 284.42,-305.05"></polygon> </g> <!-- rec3 --> <g id="node4" class="node">
+<title>
+rec3
+</title>
+<polygon fill="none" stroke="black" points="139.08,-379.41 20.59,-379.41 20.59,-343.41 139.08,-343.41 139.08,-379.41"></polygon> <text text-anchor="middle" x="79.83" y="-357.21" font-family="Times,serif" font-size="14.00">Spatial interaction</text> </g> <!-- rec3&#45;&gt;cir1 --> <g id="edge3" class="edge">
+<title>
+rec3-&gt;cir1
+</title>
+<path fill="none" stroke="black" d="M103.77,-343.39C126.36,-326.4 161.25,-300.13 192.08,-276.93"></path> <polygon fill="black" stroke="black" points="194.35,-279.6 200.23,-270.79 190.14,-274.01 194.35,-279.6"></polygon> </g> <!-- rec4 --> <g id="node5" class="node">
+<title>
+rec4
+</title>
+<polygon fill="none" stroke="black" points="157.32,-113.65 0.23,-113.65 0.23,-77.65 157.32,-77.65 157.32,-113.65"></polygon> <text text-anchor="middle" x="78.77" y="-91.45" font-family="Times,serif" font-size="14.00">Simulation and modeling</text> </g> <!-- rec4&#45;&gt;cir1 --> <g id="edge4" class="edge">
+<title>
+rec4-&gt;cir1
+</title>
+<path fill="none" stroke="black" d="M103.23,-113.75C125.94,-130.56 160.78,-156.35 191.6,-179.16"></path> <polygon fill="black" stroke="black" points="189.64,-182.06 199.76,-185.2 193.8,-176.44 189.64,-182.06"></polygon> </g> <!-- rec5 --> <g id="node6" class="node">
+<title>
+rec5
+</title>
+<polygon fill="none" stroke="black" points="386.38,-36 274.29,-36 274.29,0 386.38,0 386.38,-36"></polygon> <text text-anchor="middle" x="330.34" y="-13.8" font-family="Times,serif" font-size="14.00">Density mapping</text> </g> <!-- rec5&#45;&gt;cir1 --> <g id="edge5" class="edge">
+<title>
+rec5-&gt;cir1
+</title>
+<path fill="none" stroke="black" d="M323.98,-36.25C315.13,-61.69 298.56,-109.34 284.15,-150.75"></path> <polygon fill="black" stroke="black" points="280.8,-149.71 280.82,-160.3 287.42,-152.01 280.8,-149.71"></polygon> </g> </g>
+</svg>
+</p>
+</div>
+</div>
+</div>
+</div><div class="column">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<p>
+<svg width="530" height="456" viewbox="0.00 0.00 530.07 456.37" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style=" display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 452.37)">
+<title>
+G2
+</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-452.37 526.07,-452.37 526.07,4 -4,4"></polygon> <!-- cir1 --> <g id="node1" class="node">
+<title>
+cir1
+</title>
+<ellipse fill="none" stroke="black" cx="249.93" cy="-220.97" rx="71.27" ry="71.27"></ellipse> <text text-anchor="middle" x="249.93" y="-216.77" font-family="Times,serif" font-size="14.00">Spatial analysis</text> </g> <!-- rec1 --> <g id="node2" class="node">
+<title>
+rec1
+</title>
+<polygon fill="none" stroke="black" points="522.2,-238.97 410.67,-238.97 410.67,-202.97 522.2,-202.97 522.2,-238.97"></polygon> <text text-anchor="middle" x="466.43" y="-216.77" font-family="Times,serif" font-size="14.00">Spatial modeling</text> </g> <!-- rec1&#45;&gt;cir1 --> <g id="edge1" class="edge">
+<title>
+rec1-&gt;cir1
+</title>
+<path fill="none" stroke="black" d="M410.68,-220.97C386.57,-220.97 357.88,-220.97 331.45,-220.97"></path> <polygon fill="black" stroke="black" points="331.45,-217.47 321.45,-220.97 331.45,-224.47 331.45,-217.47"></polygon> </g> <!-- rec2 --> <g id="node3" class="node">
+<title>
+rec2
+</title>
+<polygon fill="none" stroke="black" points="450.66,-410.04 314.58,-410.04 314.58,-374.04 450.66,-374.04 450.66,-410.04"></polygon> <text text-anchor="middle" x="382.62" y="-387.84" font-family="Times,serif" font-size="14.00">Point pattern analysis</text> </g> <!-- rec2&#45;&gt;cir1 --> <g id="edge2" class="edge">
+<title>
+rec2-&gt;cir1
+</title>
+<path fill="none" stroke="black" d="M368.42,-373.74C352.09,-352.68 324.36,-316.94 299.84,-285.32"></path> <polygon fill="black" stroke="black" points="302.58,-283.13 293.68,-277.38 297.05,-287.42 302.58,-283.13"></polygon> </g> <!-- rec3 --> <g id="node4" class="node">
+<title>
+rec3
+</title>
+<polygon fill="none" stroke="black" points="251.53,-448.37 138.35,-448.37 138.35,-412.37 251.53,-412.37 251.53,-448.37"></polygon> <text text-anchor="middle" x="194.94" y="-426.17" font-family="Times,serif" font-size="14.00">Network analysis</text> </g> <!-- rec3&#45;&gt;cir1 --> <g id="edge3" class="edge">
+<title>
+rec3-&gt;cir1
+</title>
+<path fill="none" stroke="black" d="M199.73,-412.15C206.28,-387.19 218.47,-340.78 229.19,-299.94"></path> <polygon fill="black" stroke="black" points="232.58,-300.81 231.74,-290.24 225.81,-299.03 232.58,-300.81"></polygon> </g> <!-- rec4 --> <g id="node5" class="node">
+<title>
+rec4
+</title>
+<polygon fill="none" stroke="black" points="110.26,-336.03 2.55,-336.03 2.55,-300.03 110.26,-300.03 110.26,-336.03"></polygon> <text text-anchor="middle" x="56.41" y="-313.83" font-family="Times,serif" font-size="14.00">Surface analysis</text> </g> <!-- rec4&#45;&gt;cir1 --> <g id="edge4" class="edge">
+<title>
+rec4-&gt;cir1
+</title>
+<path fill="none" stroke="black" d="M92.36,-300C116.03,-288.13 147.87,-272.16 176.73,-257.69"></path> <polygon fill="black" stroke="black" points="178.61,-260.66 185.98,-253.04 175.47,-254.4 178.61,-260.66"></polygon> </g> <!-- rec5 --> <g id="node6" class="node">
+<title>
+rec5
+</title>
+<polygon fill="none" stroke="black" points="90.4,-168.75 -0.13,-168.75 -0.13,-132.75 90.4,-132.75 90.4,-168.75"></polygon> <text text-anchor="middle" x="45.13" y="-146.55" font-family="Times,serif" font-size="14.00">Grid analysis</text> </g> <!-- rec5&#45;&gt;cir1 --> <g id="edge5" class="edge">
+<title>
+rec5-&gt;cir1
+</title>
+<path fill="none" stroke="black" d="M90.33,-166.24C114.46,-174.52 144.83,-184.93 172.58,-194.45"></path> <polygon fill="black" stroke="black" points="171.68,-197.84 182.28,-197.77 173.95,-191.22 171.68,-197.84"></polygon> </g> <!-- rec6 --> <g id="node7" class="node">
+<title>
+rec6
+</title>
+<polygon fill="none" stroke="black" points="247.82,-36 101.34,-36 101.34,0 247.82,0 247.82,-36"></polygon> <text text-anchor="middle" x="174.58" y="-13.8" font-family="Times,serif" font-size="14.00">Single-layer operations</text> </g> <!-- rec6&#45;&gt;cir1 --> <g id="edge6" class="edge">
+<title>
+rec6-&gt;cir1
+</title>
+<path fill="none" stroke="black" d="M181.27,-36.01C190.23,-60.16 206.71,-104.54 221.27,-143.78"></path> <polygon fill="black" stroke="black" points="218.17,-145.47 224.93,-153.62 224.73,-143.03 218.17,-145.47"></polygon> </g> <!-- rec7 --> <g id="node8" class="node">
+<title>
+rec7
+</title>
+<polygon fill="none" stroke="black" points="451.2,-66.36 310.04,-66.36 310.04,-30.36 451.2,-30.36 451.2,-66.36"></polygon> <text text-anchor="middle" x="380.62" y="-44.16" font-family="Times,serif" font-size="14.00">Multi-layer operations</text> </g> <!-- rec7&#45;&gt;cir1 --> <g id="edge7" class="edge">
+<title>
+rec7-&gt;cir1
+</title>
+<path fill="none" stroke="black" d="M366.88,-66.5C350.87,-87.65 323.51,-123.78 299.28,-155.79"></path> <polygon fill="black" stroke="black" points="296.44,-153.74 293.2,-163.82 302.02,-157.96 296.44,-153.74"></polygon> </g> </g>
+</svg>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><em>(incomplete lists)</em></p>
+</section>
+<section id="geocomputational-methods" class="slide level2">
+<h2>Geocomputational methods</h2>
+<ul>
+<li>Exploratory data analysis (EDA)</li>
+<li>Data processing (e.g., adding new variables)</li>
+<li>Data transformation (e.g., changing CRS, reducing size via simplification/aggregation)</li>
+<li>Data visualization</li>
+<li>Web application development</li>
+<li>Software development (e.g., to share new methods)</li>
+</ul>
+</section>
+<section id="spatial-vizualizations" class="slide level2">
+<h2>Spatial vizualizations</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p><img data-src="figs/map1.jpeg"></p>
+</div><div class="column" style="width:70%;">
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 45.5%;justify-content: center;">
+<p><img data-src="figs/map2.jpeg" width="600"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 54.6%;justify-content: center;">
+<p><img data-src="figs/map3.jpeg" width="500"></p>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 45.5%;justify-content: center;">
+<p>&nbsp;</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 54.6%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figs/map4.jpeg" width="650"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<aside><div>
+<p>https://30daymapchallenge.com/2021/ <br> <span class="citation" data-cites="HeatherCh100">@HeatherCh100</span>, <span class="citation" data-cites="Cchurchili">@Cchurchili</span>, @<span class="citation" data-cites="tjukanov">@tjukanov</span>, <span class="citation" data-cites="evelynuuemaa">@evelynuuemaa</span></p>
+</div></aside></section></section>
+<section>
+<section id="chapter-2-geocomputation-with-r" class="title-slide slide level1 center">
+<h1>Chapter 2: Geocomputation with R</h1>
+
+</section>
+<section id="ecosystems" class="slide level2">
+<h2>Ecosystems</h2>
+<!-- more than one way to solve a problem -->
+<!-- alternative images: french vs english garden -->
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="figs/field1.jpg"></p>
+<p><a href="https://www.flickr.com/photos/heipei/25718450/">“What a lawn” (CC BY-SA 2.0) by heipei …</a></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="figs/field2.jpg" width="900"></p>
+<p><a href="https://www.geograph.org.uk/photo/1389946">“A field of flowers” (CC BY-SA 2.0) by Nigel Corby …</a></p>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<ul>
+<li><a href="https://github.com/r-spatial/sf">{sf}</a>, <a href="https://github.com/edzer/sp">{sp}</a>, <a href="https://github.com/rspatial/terra">{terra}</a>, <a href="https://github.com/rspatial/raster">{raster}</a>, <a href="https://github.com/r-spatial/stars">{stars}</a> - spatial classes</li>
+<li><a href="https://github.com/tidyverse/dplyr">{dplyr}</a>, <a href="https://github.com/ateucher/rmapshaper">{rmapshaper}</a> - processing of attribute tables/geometries</li>
+<li><a href="https://github.com/ropensci/rnaturalearth">{rnaturalearth}</a>, <a href="https://github.com/ropensci/osmdata">{osmdata}</a> - spatial data download</li>
+<li><a href="https://github.com/rsbivand/rgrass">{rgrass}</a>, <a href="https://github.com/paleolimbot/qgisprocess">{qgisprocess}</a>, <a href="https://github.com/r-spatial/link2GI">{link2GI}</a> - connecting with GIS software</li>
+<li><a href="https://github.com/r-spatial/gstat">{gstat}</a>, <a href="https://github.com/mlr-org/mlr3">{mlr3}</a>, <a href="https://github.com/HannaMeyer/CAST">{CAST}</a> - spatial data modeling</li>
+<li><a href="https://github.com/oscarperpinan/rastervis">{rasterVis}</a>, <a href="https://github.com/mtennekes/tmap">{tmap}</a>, <a href="https://github.com/tidyverse/ggplot2">{ggplot2}</a> - static visualizations</li>
+<li><a href="https://github.com/rstudio/leaflet">{leaflet}</a>, <a href="https://github.com/r-spatial/mapview">{mapview}</a>, <a href="https://github.com/SymbolixAU/mapdeck">{mapdeck}</a> - interactive visualizations</li>
+<li><a href="http://spatstat.org/">{spatstat}</a>, <a href="https://github.com/r-spatial/spdep">{spdep}</a>, <a href="https://github.com/r-spatial/spatialreg">{spatialreg}</a>, <a href="https://github.com/rspatial/dismo">{dismo}</a>, <a href="https://github.com/r-spatialecology/landscapemetrics">{landscapemetrics}</a>, <a href="http://bleutner.github.io/RStoolbox/rstbx-docu/RStoolbox.html">{RStoolbox}</a>, <a href="https://github.com/tylermorganwall/rayshader">{rayshader}</a>, <a href="https://github.com/appelmar/gdalcubes_R">{gdalcubes}</a>, <a href="https://github.com/luukvdmeer/sfnetworks">{sfnetworks}</a> - different types of spatial data analysis</li>
+<li>many more…</li>
+</ul>
+<p>Visit <a href="https://cran.r-project.org/view=Spatial" class="uri">https://cran.r-project.org/view=Spatial</a> to get an overview of different spatial tasks that can be solved using R.</p>
+</section>
+<section class="slide level2">
+
+
+<img data-src="https://geocompr.robinlovelace.net/figures/01-cranlogs.png" class="r-stretch quarto-figure-center"><p class="caption">Source: https://geocompr.robinlovelace.net</p></section>
+<section class="slide level2">
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(spData)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(sf)</span>
+<span id="cb1-3"><a href="#cb1-3"></a>world</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simple feature collection with 177 features and 10 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: -180 ymin: -89.9 xmax: 180 ymax: 83.64513
+Geodetic CRS:  WGS 84
+# A tibble: 177 × 11
+   iso_a2 name_l…¹ conti…² regio…³ subre…⁴ type  area_…⁵     pop lifeExp gdpPe…⁶
+ * &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+ 1 FJ     Fiji     Oceania Oceania Melane… Sove…  1.93e4  8.86e5    70.0   8222.
+ 2 TZ     Tanzania Africa  Africa  Easter… Sove…  9.33e5  5.22e7    64.2   2402.
+ 3 EH     Western… Africa  Africa  Northe… Inde…  9.63e4 NA         NA       NA 
+ 4 CA     Canada   North … Americ… Northe… Sove…  1.00e7  3.55e7    82.0  43079.
+ 5 US     United … North … Americ… Northe… Coun…  9.51e6  3.19e8    78.8  51922.
+ 6 KZ     Kazakhs… Asia    Asia    Centra… Sove…  2.73e6  1.73e7    71.6  23587.
+ 7 UZ     Uzbekis… Asia    Asia    Centra… Sove…  4.61e5  3.08e7    71.0   5371.
+ 8 PG     Papua N… Oceania Oceania Melane… Sove…  4.65e5  7.76e6    65.2   3709.
+ 9 ID     Indones… Asia    Asia    South-… Sove…  1.82e6  2.55e8    68.9  10003.
+10 AR     Argenti… South … Americ… South … Sove…  2.78e6  4.30e7    76.3  18798.
+# … with 167 more rows, 1 more variable: geom &lt;MULTIPOLYGON [°]&gt;, and
+#   abbreviated variable names ¹​name_long, ²​continent, ³​region_un, ⁴​subregion,
+#   ⁵​area_km2, ⁶​gdpPercap
+# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">plot</span>(world)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
+<section class="slide level2">
+
+
+<!-- + mention bridges -->
+<img data-src="https://keen-swartz-3146c4.netlify.com/images/sf_deps.png" class="r-stretch quarto-figure-center"><p class="caption">Source: https://www.r-spatial.org/r/2020/03/17/wkt.html</p></section>
+<section class="slide level2">
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">library</span>(terra)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>srtm <span class="ot">=</span> <span class="fu">rast</span>(<span class="fu">system.file</span>(<span class="st">"raster/srtm.tif"</span>, <span class="at">package =</span> <span class="st">"spDataLarge"</span>))</span>
+<span id="cb4-3"><a href="#cb4-3"></a>srtm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>class       : SpatRaster 
+dimensions  : 457, 465, 1  (nrow, ncol, nlyr)
+resolution  : 0.0008333333, 0.0008333333  (x, y)
+extent      : -113.2396, -112.8521, 37.13208, 37.51292  (xmin, xmax, ymin, ymax)
+coord. ref. : lon/lat WGS 84 (EPSG:4326) 
+source      : srtm.tif 
+name        : srtm 
+min value   : 1024 
+max value   : 2892 </code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">plot</span>(srtm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"></section>
+<section class="slide level2">
+
+
+<img data-src="figs/terra-libs.png" class="r-stretch"></section>
+<section id="section-1" class="slide level2" data-background-image="figs/bingo.jpg" data-background-opacity="0.2">
+<h2></h2>
+<div class="columns">
+<div class="column">
+<h3 id="rspatial-vs-r-spatial"><a href="https://www.rspatial.org/">rspatial</a> vs <a href="https://www.r-spatial.org/">r-spatial</a></h3>
+<p><br><br><br><br><br><br></p>
+<h3 id="legacy"><a href="https://geocompr.robinlovelace.net/intro.html#the-history-of-r-spatial">Legacy</a></h3>
+</div><div class="column">
+<h3 id="old-vs-new">Old vs New</h3>
+<p><br><br><br><br><br><br></p>
+<h3 id="various-r-ecosystems"><a href="https://geocompr.github.io/post/2021/spatial-classes-conversion/">Various R ecosystems</a></h3>
+</div>
+</div>
+</section>
+<section id="other-foundations" class="slide level2" data-background-image="figs/Building_foundation.jpg" data-background-opacity="0.5">
+<h2>Other foundations</h2>
+<!-- <a title="Tiia Monto, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Building_foundation.jpg"><img width="1024" alt="Building foundation" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Building_foundation.jpg/1024px-Building_foundation.jpg"></a> -->
+</section>
+<section class="slide level2">
+
+
+<img data-src="figs/cube2.png" class="r-stretch quarto-figure-center"><p class="caption">{stars} - https://r-spatial.github.io/stars/</p></section>
+<section class="slide level2">
+
+
+<!-- also geoarrow -->
+<img data-src="figs/s2.png" class="r-stretch quarto-figure-center"><p class="caption">{s2} - https://r-spatial.github.io/s2/</p></section>
+<section class="slide level2">
+
+
+<img data-src="figs/lidr.png" class="r-stretch quarto-figure-center"><p class="caption">{lidR} - https://github.com/r-lidar/lidR</p></section>
+<section class="slide level2">
+
+
+<img data-src="figs/sfnetwork.png" class="r-stretch quarto-figure-center"><p class="caption">{sfnetwork} - https://luukvdmeer.github.io/sfnetworks</p></section>
+<section class="slide level2">
+
+
+<!-- ecosystem of packages on its own! -->
+<img data-src="figs/spatstat.png" class="r-stretch quarto-figure-center"><p class="caption">{spatstat} - https://spatstat.org/</p></section>
+<section class="slide level2">
+
+
+<img data-src="figs/hypertidy.png" class="r-stretch quarto-figure-center"><p class="caption">hypertidy-verse - https://github.com/hypertidy</p></section>
+<section id="dependent-spatial-packages" class="slide level2" data-background-image="figs/kittens.jpg" data-background-opacity="0.5">
+<h2>(Dependent) spatial packages</h2>
+<!-- https://commons.wikimedia.org/wiki/File:Mother_dog_breast_feeding_two_kittens.jpg -->
+</section>
+<section id="supercells" class="slide level2">
+<h2>{supercells}</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">library</span>(supercells)</span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">library</span>(terra)</span>
+<span id="cb7-3"><a href="#cb7-3"></a>s <span class="ot">=</span> <span class="fu">rast</span>(<span class="fu">system.file</span>(<span class="st">"ex/logo.tif"</span>, <span class="at">package =</span> <span class="st">"terra"</span>))   </span>
+<span id="cb7-4"><a href="#cb7-4"></a>sc <span class="ot">=</span> <span class="fu">supercells</span>(s, <span class="dv">500</span>, <span class="at">compactness =</span> <span class="dv">50</span>, <span class="at">transform =</span> <span class="st">"to_LAB"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="columns">
+<div class="column">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-12-1.png" width="960"></p>
+</div>
+</div>
+</div><div class="column">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-13-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+<!-- add description -->
+</section>
+<section class="slide level2">
+
+
+<img data-src="figs/supercells.png" class="r-stretch"></section>
+<section id="section-2" class="slide level2" data-background-image="figs/web1.jpg" data-background-size="cover">
+<h2></h2>
+<!-- Spiderweb of interconnection -->
+<p><a href="https://www.flickr.com/photos/theenmoy/22969338962">“Spidery Fence” (CC BY-NC-SA 2.0) by Theen …</a></p>
+</section>
+<section id="section-3" class="slide level2" data-background-image="figs/web2.jpg" data-background-size="cover">
+<h2></h2>
+<p><a href="https://www.flickr.com/photos/bluehurricane/1317521644">“world’s largest spider web” (CC BY-NC-SA 2.0) by bluehurricane</a></p>
+</section>
+<section class="slide level2">
+
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-14-1.png" width="1152" class="r-stretch"></section>
+<section id="spatial-vizualizations-1" class="slide level2">
+<h2>Spatial vizualizations</h2>
+<p><a href="https://r-tmap.github.io/" class="uri">https://r-tmap.github.io/</a></p>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">library</span>(tmap)</span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="fu">tm_shape</span>(s) <span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">tm_rgb</span>() <span class="sc">+</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a>  <span class="fu">tm_shape</span>(sc) <span class="sc">+</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a>  <span class="fu">tm_compass</span>(<span class="at">position =</span> <span class="fu">c</span>(<span class="st">"right"</span>, <span class="st">"top"</span>)) <span class="sc">+</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a>  <span class="fu">tm_layout</span>(<span class="at">main.title =</span> <span class="st">"{supercells}"</span>,</span>
+<span id="cb8-8"><a href="#cb8-8"></a>            <span class="at">frame =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-15-1.png" width="960"></p>
+</div>
+</div>
+</div>
+<p>Also see: <code>tmap_mode("view")</code>, {mapview}</p>
+</section>
+<section id="exercises" class="slide level2">
+<h2>Exercises</h2>
+<!-- exercises -->
+<!-- two or three levels of difficulty -->
+<!-- Exercise: includes downloading files online, some function that is new,  -->
+</section></section>
+<section>
+<section id="chapter-3-reproducible-analysis" class="title-slide slide level1 center">
+<h1>Chapter 3: Reproducible analysis</h1>
+
+</section>
+<section id="reproduciblity-spectrum" class="slide level2">
+<h2>Reproduciblity spectrum</h2>
+<div class="columns">
+<div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figs/ladder1.png" height="700"></p>
+<p></p><figcaption>Based on: https://doi.org/10.1126/science.1213847</figcaption><p></p>
+</figure>
+</div>
+</div><div class="column">
+<ul>
+<li>Reproducible/Replicable</li>
+<li>Not only for publications!</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="yes-but-why" class="slide level2">
+<h2>Yes, but why?</h2>
+<div class="columns">
+<div class="column">
+<p><img data-src="figs/ladder2.png"></p>
+</div><div class="column">
+<p>Internal and external reasons</p>
+</div>
+</div>
+<!-- https://annakrystalli.me/talks/r-in-repro-research-dc.html#12 -->
+<!-- https://the-turing-way.netlify.app/reproducible-research/overview/overview-benefit.html -->
+</section>
+<section id="self-reproduciblity" class="slide level2">
+<h2>Self-reproduciblity</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li>To reproduce</li>
+<li>To replicate</li>
+<li>To fix/update/modify</li>
+</ul>
+</div><div class="column">
+<ul>
+<li>To extend</li>
+<li>To share</li>
+<li>(To not repeat ourselves)</li>
+</ul>
+</div>
+</div>
+<!-- ![](figs/timetravel.jpeg){.r-stretch fig-align="center"} -->
+
+<img data-src="figs/timetravel2.png" class="r-stretch quarto-figure-center"></section>
+<section id="external-reproduciblity" class="slide level2">
+<h2>External reproduciblity</h2>
+<ul>
+<li>Reproducible</li>
+<li>Robust</li>
+<li>Transparent</li>
+<li>Reusable</li>
+<li>Shareable</li>
+</ul>
+
+<!-- https://annakrystalli.me/talks/r-in-repro-research-dc.html#122 -->
+<!-- https://kbroman.org/knitr_knutshell/pages/reproducible.html -->
+<!-- more markus konkol -->
+<aside><div>
+<p>Source: <a href="https://annakrystalli.me/talks/r-in-repro-research-dc.html">“Putting the R into Reproducible Research” by Anna Krystalli</a></p>
+</div></aside></section></section>
+<section>
+<section id="chapter-4-reproducible-geocomputation" class="title-slide slide level1 center">
+<h1>Chapter 4: Reproducible geocomputation</h1>
+<!-- https://annakrystalli.me/talks/r-in-repro-research-dc.html#1 -->
+</section>
+<section id="story-of-my-life" class="slide level2">
+<h2>Story of my life</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figs/mypap.png"></p>
+</figure>
+</div>
+</div><div class="column">
+<ul>
+<li><strong>Issue:</strong> human memory</li>
+<li><a href="http://dx.doi.org/10.2478/quageo-2014-0005" class="uri">http://dx.doi.org/10.2478/quageo-2014-0005</a></li>
+<li><strong>Solution:</strong> code!</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="r-code" class="slide level2">
+<h2>R code</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">library</span>(terra)</span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">library</span>(supercells)</span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="co"># setwd("")</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a>s <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="fu">system.file</span>(<span class="st">"ex/logo.tif"</span>, <span class="at">package =</span> <span class="st">"terra"</span>))   </span>
+<span id="cb9-5"><a href="#cb9-5"></a>sc <span class="ot">=</span> <span class="fu">supercells</span>(s, <span class="dv">500</span>, <span class="at">compactness =</span> <span class="dv">50</span>,<span class="at">transform=</span><span class="st">'to_LAB'</span>)</span>
+<span id="cb9-6"><a href="#cb9-6"></a>sck <span class="ot">=</span> <span class="fu">kmeans</span>(sf<span class="sc">::</span><span class="fu">st_drop_geometry</span>(sc[<span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>]), <span class="at">centers =</span> <span class="dv">10</span>)</span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="fu">plot</span>(sf<span class="sc">::</span><span class="fu">st_geometry</span>(sc[<span class="dv">0</span>]), <span class="at">col =</span> sck<span class="sc">$</span>cluster)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-16-1.png" width="960"></p>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<ul>
+<li class="fragment"><strong>Issue:</strong> working directory</li>
+<li class="fragment"><strong>Issue:</strong> code style</li>
+<li class="fragment"><strong>Issue:</strong> randomness</li>
+<li class="fragment"><strong>Issue:</strong> temporary objects</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="r-code-1" class="slide level2">
+<h2>R code</h2>
+<!-- improve the code above -->
+<p>RStudio: File &gt; New Project &gt; New Directory -&gt; New Project -&gt; …</p>
+<p>Absolute vs relative paths</p>
+<div class="columns">
+<div class="column">
+<p><img data-src="figs/rproj1.png"></p>
+</div><div class="column">
+<p><img data-src="figs/rproj2.png"></p>
+</div>
+</div>
+<p>Also: clear environment + restart R</p>
+</section>
+<section id="reprex-reproducible-example" class="slide level2">
+<h2>{reprex}: <em>repr</em>oducible <em>ex</em>ample</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<ul>
+<li class="fragment"><p><strong>Why:</strong> to ask a question; to report a bug; to fix a bug; to showcase some examples; …</p></li>
+<li class="fragment"><p><strong>Input:</strong> minimal code allowing to reproduce your problem/example (strip away everything that is not directly related to your problem)</p></li>
+<li class="fragment"><p><strong>Output:</strong> resulting runnable code + output as Markdown (including code results and plots) + (optionally) session info</p></li>
+</ul>
+</div><div class="column" style="width:30%;">
+<p><img data-src="figs/reprex.png"></p>
+</div>
+</div>
+</section>
+<section id="reprex-reproducible-example-1" class="slide level2">
+<h2>{reprex}: <em>repr</em>oducible <em>ex</em>ample</h2>
+<iframe width="1600" height="650" src="https://www.youtube.com/embed/35suhGR53wQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+
+<aside><div>
+<p><a href="https://reprex.tidyverse.org/" class="uri">https://reprex.tidyverse.org/</a>, <a href="https://community.rstudio.com/t/faq-whats-a-reproducible-example-reprex-and-how-do-i-create-one/5219" class="uri">https://community.rstudio.com/t/faq-whats-a-reproducible-example-reprex-and-how-do-i-create-one/5219</a></p>
+</div></aside></section>
+<section id="r-code-2" class="slide level2">
+<h2>R code</h2>
+<ul>
+<li><strong>Issue:</strong> packages (and their dependencies) versions</li>
+</ul>
+
+<img data-src="figs/mt-gears.gif" class="r-stretch quarto-figure-center"></section>
+<section id="renv" class="slide level2">
+<h2>{renv}</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><a href="https://rstudio.github.io/renv/" class="uri">https://rstudio.github.io/renv/</a></p>
+</div><div class="column" style="width:50%;">
+<ol type="1">
+<li><code>renv::init(</code>) to initialize a new project-local environment with a private R library</li>
+<li>Work in the project as normal, installing and removing new R packages</li>
+<li><code>renv::snapshot()</code> to save the state of the project library to the lockfile (<code>renv.lock</code>)</li>
+<li>Continue working on your project</li>
+<li>Call <code>renv::snapshot()</code> again to save the state of your project or <code>renv::restore()</code> to revert to the previous state as encoded in the lockfile</li>
+</ol>
+</div>
+</div>
+<!-- issue: software versions, both external and R -->
+</section>
+<section id="version-control" class="slide level2">
+<h2>Version control</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<ul>
+<li><strong>Issue:</strong> what if the older version was better?</li>
+<li><strong>Issue:</strong> backup copy</li>
+<li><strong>Issue:</strong> sharing</li>
+<li><strong>Issue:</strong> collaborating</li>
+</ul>
+<p><img data-src="figs/gitlogo.png" width="500"></p>
+</div><div class="column" style="width:70%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figs/rgit.png" width="900"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figs/githublogo.png" width="700"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figs/gitlablogo.png" width="700"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="version-control-1" class="slide level2">
+<h2>Version control</h2>
+
+<img data-src="figs/combo.gif" class="r-stretch quarto-figure-center"></section>
+<section id="version-control-2" class="slide level2">
+<h2>Version control</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><a href="https://github.com/Robinlovelace/geocompr" class="uri">https://github.com/Robinlovelace/geocompr</a></p>
+</div><div class="column" style="width:60%;">
+<p><img data-src="figs/geocompr-github.png"></p>
+</div>
+</div>
+
+<aside><div>
+<p><a href="https://happygitwithr.com/" class="uri">https://happygitwithr.com/</a></p>
+</div></aside></section>
+<section id="literate-programming" class="slide level2">
+<h2>Literate programming</h2>
+
+<img data-src="figs/rmd-github.png" class="r-stretch"><p><a href="https://github.com/Robinlovelace/geocompr/blob/main/06-raster-vector.Rmd" class="uri">https://github.com/Robinlovelace/geocompr/blob/main/06-raster-vector.Rmd</a></p>
+</section>
+<section id="literate-programming-1" class="slide level2">
+<h2>Literate programming</h2>
+
+<img data-src="figs/rmd-github2.png" class="r-stretch"><p><a href="https://geocompr.robinlovelace.net/raster-vector.html" class="uri">https://geocompr.robinlovelace.net/raster-vector.html</a></p>
+</section>
+<section id="literate-programming-2" class="slide level2">
+<h2>Literate programming</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figs/learningcurve.png"></p>
+<p></p><figcaption>Writing Technical Papers with Markdown by Dheepak Krishnamurthy</figcaption><p></p>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
+<ul>
+<li class="fragment"><strong>Issue:</strong> create (and update) scientific and technical documents</li>
+<li class="fragment">Markdown keeps everything (including text, code, figures, etc.) in one place</li>
+<li class="fragment">Markdown supports reproducibility</li>
+<li class="fragment">Markdown allows for more complexity (story of my life, again…)</li>
+</ul>
+</div>
+</div>
+
+<aside><div>
+<p><a href="https://rmarkdown.rstudio.com/" class="uri">https://rmarkdown.rstudio.com/</a>, <a href="https://quarto.org/" class="uri">https://quarto.org/</a></p>
+</div></aside></section>
+<section id="targets" class="slide level2">
+<h2>{targets}</h2>
+<ul>
+<li><strong>Issue:</strong> large data</li>
+<li><strong>Issue:</strong> computationaly demanding operations</li>
+<li>The {targets} package creates a reproducible workflow</li>
+<li>It skips costly runtime for tasks that are already up to date</li>
+<li>It allows to easy parallelization of the tasks</li>
+</ul>
+
+<aside><div>
+<p><a href="https://books.ropensci.org/targets/" class="uri">https://books.ropensci.org/targets/</a></p>
+</div></aside></section>
+<section id="targets-1" class="slide level2">
+<h2>{targets}</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Before new changes: <img data-src="figs/tar1.png"></p>
+</div><div class="column" style="width:50%;">
+<p>After new changes: <img data-src="figs/tar2.png"></p>
+</div>
+</div>
+<p><a href="https://github.com/Nowosad/ogh2022-targets" class="uri">https://github.com/Nowosad/ogh2022-targets</a></p>
+<!-- create example targets -->
+<!-- terra pointers -->
+<!-- large data storage... -->
+</section>
+<section id="r-packages" class="slide level2">
+<h2>R packages</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><strong>Issue:</strong> a lot of copy/paste or repeating ourselves</li>
+<li><strong>Issue:</strong> no documentation</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><strong>Issue:</strong> problem with code sharing</li>
+<li><strong>Issue:</strong> problem with example data sharing</li>
+</ul>
+</div>
+</div>
+<div class="cell" data-fig-width="10">
+<div class="cell-output-display">
+<div>
+<p>
+<svg width="960" height="519" viewbox="0.00 0.00 381.39 206.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style=" display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 202)">
+<title>
+G3
+</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-202 377.39,-202 377.39,4 -4,4"></polygon> <!-- rec1 --> <g id="node1" class="node">
+<title>
+rec1
+</title>
+<polygon fill="none" stroke="black" points="55.4,-117 -0.13,-117 -0.13,-81 55.4,-81 55.4,-117"></polygon> <text text-anchor="middle" x="27.63" y="-94.8" font-family="Times,serif" font-size="14.00">R code</text> </g> <!-- rec2 --> <g id="node2" class="node">
+<title>
+rec2
+</title>
+<polygon fill="none" stroke="black" points="151.18,-117 91.29,-117 91.29,-81 151.18,-81 151.18,-117"></polygon> <text text-anchor="middle" x="121.24" y="-94.8" font-family="Times,serif" font-size="14.00">R script</text> </g> <!-- rec1&#45;&gt;rec2 --> <g id="edge1" class="edge">
+<title>
+rec1-&gt;rec2
+</title>
+<path fill="none" stroke="black" d="M55.62,-99C63.58,-99 72.45,-99 81,-99"></path> <polygon fill="black" stroke="black" points="81.21,-102.5 91.21,-99 81.21,-95.5 81.21,-102.5"></polygon> </g> <!-- rec3 --> <g id="node3" class="node">
+<title>
+rec3
+</title>
+<polygon fill="none" stroke="black" points="262.95,-198 186.96,-198 186.96,-162 262.95,-162 262.95,-198"></polygon> <text text-anchor="middle" x="224.95" y="-175.8" font-family="Times,serif" font-size="14.00">R function</text> </g> <!-- rec2&#45;&gt;rec3 --> <g id="edge2" class="edge">
+<title>
+rec2-&gt;rec3
+</title>
+<path fill="none" stroke="black" d="M143.34,-117.08C155.92,-127.73 172.3,-141.35 187.21,-153 188.38,-153.91 189.57,-154.84 190.78,-155.77"></path> <polygon fill="black" stroke="black" points="188.81,-158.66 198.9,-161.9 193.03,-153.08 188.81,-158.66"></polygon> </g> <!-- rec4 --> <g id="node4" class="node">
+<title>
+rec4
+</title>
+<polygon fill="none" stroke="black" points="262.95,-144 186.96,-144 186.96,-108 262.95,-108 262.95,-144"></polygon> <text text-anchor="middle" x="224.95" y="-121.8" font-family="Times,serif" font-size="14.00">R function</text> </g> <!-- rec2&#45;&gt;rec4 --> <g id="edge3" class="edge">
+<title>
+rec2-&gt;rec4
+</title>
+<path fill="none" stroke="black" d="M151.38,-106.74C159.49,-108.89 168.5,-111.28 177.34,-113.63"></path> <polygon fill="black" stroke="black" points="176.62,-117.06 187.18,-116.24 178.42,-110.29 176.62,-117.06"></polygon> </g> <!-- rec5 --> <g id="node5" class="node">
+<title>
+rec5
+</title>
+<polygon fill="none" stroke="black" points="262.95,-90 186.96,-90 186.96,-54 262.95,-54 262.95,-90"></polygon> <text text-anchor="middle" x="224.95" y="-67.8" font-family="Times,serif" font-size="14.00">R function</text> </g> <!-- rec2&#45;&gt;rec5 --> <g id="edge4" class="edge">
+<title>
+rec2-&gt;rec5
+</title>
+<path fill="none" stroke="black" d="M151.38,-91.26C159.49,-89.11 168.5,-86.72 177.34,-84.37"></path> <polygon fill="black" stroke="black" points="178.42,-87.71 187.18,-81.76 176.62,-80.94 178.42,-87.71"></polygon> </g> <!-- rec6 --> <g id="node6" class="node">
+<title>
+rec6
+</title>
+<polygon fill="none" stroke="black" points="262.95,-36 186.96,-36 186.96,0 262.95,0 262.95,-36"></polygon> <text text-anchor="middle" x="224.95" y="-13.8" font-family="Times,serif" font-size="14.00">R function</text> </g> <!-- rec2&#45;&gt;rec6 --> <g id="edge5" class="edge">
+<title>
+rec2-&gt;rec6
+</title>
+<path fill="none" stroke="black" d="M143.34,-80.92C155.92,-70.27 172.3,-56.65 187.21,-45 188.38,-44.09 189.57,-43.16 190.78,-42.23"></path> <polygon fill="black" stroke="black" points="193.03,-44.92 198.9,-36.1 188.81,-39.34 193.03,-44.92"></polygon> </g> <!-- rec7 --> <g id="node7" class="node">
+<title>
+rec7
+</title>
+<polygon fill="none" stroke="black" points="373.24,-117 298.85,-117 298.85,-81 373.24,-81 373.24,-117"></polygon> <text text-anchor="middle" x="336.05" y="-94.8" font-family="Times,serif" font-size="14.00">R package</text> </g> <!-- rec3&#45;&gt;rec7 --> <g id="edge6" class="edge">
+<title>
+rec3-&gt;rec7
+</title>
+<path fill="none" stroke="black" d="M250.88,-161.73C254.84,-158.81 258.88,-155.83 262.7,-153 275.8,-143.3 290.2,-132.57 302.67,-123.25"></path> <polygon fill="black" stroke="black" points="305.05,-125.84 310.97,-117.05 300.86,-120.23 305.05,-125.84"></polygon> </g> <!-- rec4&#45;&gt;rec7 --> <g id="edge7" class="edge">
+<title>
+rec4-&gt;rec7
+</title>
+<path fill="none" stroke="black" d="M262.89,-116.86C271.15,-114.81 280.02,-112.62 288.61,-110.49"></path> <polygon fill="black" stroke="black" points="289.66,-113.84 298.52,-108.04 287.97,-107.04 289.66,-113.84"></polygon> </g> <!-- rec5&#45;&gt;rec7 --> <g id="edge8" class="edge">
+<title>
+rec5-&gt;rec7
+</title>
+<path fill="none" stroke="black" d="M262.89,-81.14C271.15,-83.19 280.02,-85.38 288.61,-87.51"></path> <polygon fill="black" stroke="black" points="287.97,-90.96 298.52,-89.96 289.66,-84.16 287.97,-90.96"></polygon> </g> <!-- rec6&#45;&gt;rec7 --> <g id="edge9" class="edge">
+<title>
+rec6-&gt;rec7
+</title>
+<path fill="none" stroke="black" d="M250.88,-36.27C254.84,-39.19 258.88,-42.17 262.7,-45 275.8,-54.7 290.2,-65.43 302.67,-74.75"></path> <polygon fill="black" stroke="black" points="300.86,-77.77 310.97,-80.95 305.05,-72.16 300.86,-77.77"></polygon> </g> </g>
+</svg>
+</p>
+</div>
+</div>
+</div>
+</section>
+<section id="r-packages-1" class="slide level2">
+<h2>R packages</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>R packages may serve many purposes…</p>
+<p><img data-src="figs/supercells-gh.png"> <a href="https://github.com/Nowosad/supercells" class="uri">https://github.com/Nowosad/supercells</a></p>
+</div><div class="column" style="width:35%;">
+<p><img data-src="figs/spData-gh.png"> <a href="https://github.com/Nowosad/spData" class="uri">https://github.com/Nowosad/spData</a> <img data-src="figs/geocompkg-gh.png"> <a href="https://github.com/geocompr/geocompkg" class="uri">https://github.com/geocompr/geocompkg</a></p>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="r-packages-2">R packages</h3>
+<div class="columns">
+<div class="column" style="width:35%;">
+<p><a href="https://usethis.r-lib.org" class="uri">https://usethis.r-lib.org</a></p>
+<p>Create a package template:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>usethis<span class="sc">::</span><span class="fu">create_package</span>(<span class="st">"mypackage"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Subset of other useful {usethis} functions:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">use_package</span>(<span class="st">"ggplot2"</span>, <span class="st">"Suggests"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="fu">use_readme_rmd</span>()</span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="fu">use_mit_license</span>(<span class="st">"My Name"</span>)</span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="fu">use_data</span>(x, y)</span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="fu">use_news_md</span>()</span>
+<span id="cb11-6"><a href="#cb11-6"></a><span class="fu">use_test</span>(<span class="st">"my-test"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><a href="https://r-pkgs.org/" class="uri">https://r-pkgs.org/</a>, <a href="https://indrajeetpatil.github.io/awesome-r-pkgtools/" class="uri">https://indrajeetpatil.github.io/awesome-r-pkgtools/</a></p>
+</div><div class="column" style="width:65%;">
+<ul>
+<li>Creating/modifying code (<code>R/</code>)</li>
+<li>Using the <code>devtools::load_all()</code> function, which loads new/modified functions into R session</li>
+<li>Verifying that the function works as expected using several examples (also adding unit tests)</li>
+<li>Updating the documentation of the code</li>
+<li>Generating documentation files using <code>devtools::document()</code></li>
+<li>Checking if the package has any issues with <code>devtools::check()</code></li>
+<li>Modifying the software version in the DESCRIPTION file</li>
+<li>Repeating the above steps</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="docker" class="slide level2">
+<h2>Docker</h2>
+<p><a href="https://docs.docker.com/get-started/" class="uri">https://docs.docker.com/get-started/</a></p>
+
+<img data-src="figs/geocompr-docker1.png" class="r-stretch quarto-figure-center"><p><a href="https://hub.docker.com/r/geocompr/geocompr" class="uri">https://hub.docker.com/r/geocompr/geocompr</a></p>
+</section>
+<section class="slide level2">
+
+<div class="columns">
+<div class="column">
+<p><img data-src="figs/geocompr-docker2.png"></p>
+</div><div class="column">
+<p>Also see: <img data-src="figs/binder.png"> <a href="https://mybinder.org/v2/gh/robinlovelace/geocompr/main?urlpath=rstudio" class="uri">https://mybinder.org/v2/gh/robinlovelace/geocompr/main?urlpath=rstudio</a></p>
+</div>
+</div>
+</section>
+<section id="cicd" class="slide level2">
+<h2>CI/CD</h2>
+<p><strong>Issue:</strong> …but it works on my computer</p>
+<p>CI/CD: continuous integration (CI) and continuous deployment (CD)</p>
+
+<img data-src="figs/cicd.png" class="r-stretch quarto-figure-center"><p class="caption">Source: https://docs.gitlab.com/ee/ci/introduction/</p></section>
+<section id="cicd-1" class="slide level2">
+<h2>CI/CD</h2>
+<p><a href="https://github.com/Robinlovelace/geocompr/blob/main/.github/workflows/main.yaml" class="uri">https://github.com/Robinlovelace/geocompr/blob/main/.github/workflows/main.yaml</a></p>
+<div class="columns">
+<div class="column">
+<p><img data-src="figs/gha1.png"></p>
+</div><div class="column">
+<p><img data-src="figs/gha2.png"></p>
+</div>
+</div>
+<p><a href="https://geocompr.github.io/post/2022/geocompr-solutions/" class="uri">https://geocompr.github.io/post/2022/geocompr-solutions/</a></p>
+</section>
+<section id="exercises-1" class="slide level2">
+<h2>Exercises</h2>
+<!-- Counterexercise: give a code that worked in the past -- fix it! -->
+<!-- exercise: -->
+<!-- make the code reproducible -->
+</section></section>
+<section id="the-end" class="title-slide slide level1 center" data-background-image="figs/end2.png" data-background-opacity="0.4" data-background-size="cover">
+<h1>The end</h1>
+<p><a href="https://jakubnowosad.com/ogh2022/" class="uri">https://jakubnowosad.com/ogh2022/</a></p>
 <div class="footer footer-default">
-<p><a href="https://jakubnowosad.com/">JN</a></p>
+<p><a href="https://jakubnowosad.com/ogh2022/">jakubnowosad.com/ogh2022</a></p>
 </div>
 </section>
     </div>
@@ -486,7 +1758,7 @@
         hideCursorTime: 5000,
 
         // Opens links in an iframe preview overlay
-        previewLinks: false,
+        previewLinks: true,
 
         // Transition style (none/fade/slide/convex/concave/zoom)
         transition: 'none',
@@ -543,6 +1815,48 @@
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          // dispatch for htmlwidgets
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for reveal
+        if (window.Reveal) {
+          window.Reveal.addEventListener("slidechanged", function(event) {
+            fireSlideChanged(event.previousSlide, event.currentSlide);
+          });
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
