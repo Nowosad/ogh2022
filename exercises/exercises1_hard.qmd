@@ -1,0 +1,30 @@
+---
+title: "Exercises 1"
+subtitle: "Medium level"
+format: html
+---
+
+E1. Programmatically download borders of Germany.
+
+E2. Read the median (P50) global snow cover monthly values for December 2019 from  https://zenodo.org/record/6011200/.
+
+E3. Limit the snow cover data extent to the area of Germany.
+
+E4. Transform the Germany borders and the Germany snow cover data to a local projection.
+
+E5. Create a map of the median (P50) Germany snow cover monthly values for December 2019 using the {tmap} package. Customize map colors, add a scale bar, north arrow, graticule lines, and a map title.
+
+E6. Save the map created in the previous exercise to a .png file.
+
+E7. Use the {supercells} package to create superpixels of similar snow cover monthly values for December 2019. 
+Next, apply the `kmeans()` algorithm to derive six categories of superpixels. 
+Visualize the results.
+
+E8: Dissolve the borders between superpixels belonging to the same category.
+Visualize the results.
+
+E9: Bonus 1: Download elevation data for Germany using the {elevatr} package. 
+Visualize the previous results on top of a hillshade map.
+
+E10: Bonus 2: Derive clusters of superpixels again, but this time based on a raster time-series of the median (P50) Germany snow cover monthly values for every December between 2000 and 2019.
+Visualize the results.

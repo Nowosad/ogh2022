@@ -1,0 +1,119 @@
+---
+title: "Exercises 1"
+subtitle: "Easy level"
+format: html
+---
+
+Read the exercises below. 
+A code solution accompanies each exercise; however, some parts of the solutions are missing.
+Your goal is to fill the parts of the code marked with `?TO_ADD?`.
+Also -- study the code carefully to understand how each line works. 
+If you do not understand a function, visit its help page with `?function`, e.g., `?mean`.
+
+E1. Programmatically download borders of Germany (hint: you can try to use packages, such as {rgeoboundaries}, {geodata}, or {rnaturalearth}).
+
+```{r}
+library(rgeoboundaries)
+ger = gb_adm0(?COUNTRY_NAME?, type = "SSCGS")
+plot(ger)
+```
+
+E2. Read the median (P50) global snow cover monthly values for December 2019 from  https://zenodo.org/record/6011200/ (hint2: you can create a connection to the file with the `/vsicurl/` prefix; see https://geocompr.robinlovelace.net/read-write.html#raster-data-read).
+
+```{r}
+library(terra)
+y2019 = ?INPUT_DATA_URL?
+y2019rast = rast(paste0("/vsicurl/", y2019))
+plot(y2019rast)
+```
+
+E3. Limit the snow cover data extent to the area of Germany (hint: see https://geocompr.robinlovelace.net/raster-vector.html#raster-cropping).
+
+```{r}
+y2019rast = crop(y2019rast, ?GERMAN_BORDERS?)
+plot(?RASTER_OBJECT?)
+y2019rast = mask(y2019rast, ?GERMAN_BORDERS?)
+plot(?RASTER_OBJECT?)
+```
+
+E4. Transform the Germany borders and the Germany snow cover data to a local projection (hint: try https://epsg.io/4839).
+
+```{r}
+y2019rast = project(y2019rast, ?EPSG_CODE?)
+plot(y2019rast)
+ger_4839 = st_transform(ger, ?EPSG_CODE?)
+plot(st_geometry(ger_4839))
+```
+
+E5. Create a map of the median (P50) Germany snow cover monthly values for December 2019 using the {tmap} package. Customize map colors, add a scale bar, north arrow, graticule lines, and a map title (hint: look at the examples at https://r-tmap.github.io/tmap-book/nutshell.html#regular-maps).
+
+```{r}
+library(tmap)
+tm1 = tm_shape(y2019rast) +
+  tm_graticules() +
+  tm_raster(title = ?ADD_LEGEND_TITLE?,
+            palette = "viridis",
+            style = "cont") +
+  tm_shape(ger_4839) +
+  tm_borders(lwd = 3) +
+  tm_scale_bar(position = c(?right_left_or_center?, "bottom"),
+               breaks = c(0, 50, 100)) +
+  tm_compass(position = c("right", ?top_bottom_or_center?)) +
+  tm_layout(main.title = ?ADD_MAP_TITLE?)
+tm1
+```
+
+E6. Save the map created in the previous exercise to a .png file (hint: look at the examples at https://r-tmap.github.io/tmap-book/save.html).
+
+```{r}
+tmap_save(tm1, ?NEW_FILE_NAME?, height = ?SPECIFY_MAP_HEIGHT?, width = 1000, dpi = 150)
+```
+
+E7. Use the {supercells} package to create superpixels of similar snow cover monthly values for December 2019. 
+Next, apply the `kmeans()` algorithm to derive six categories of superpixels. 
+Visualize the results.
+
+```{r}
+library(supercells)
+library(dplyr)
+set.seed(2021-08-19)
+y2019rastsc = supercells(?RASTER_OBJECT?, k = 10000, compactness = 1)
+y2019rastsck = kmeans(sf::st_drop_geometry(y2019rastsc[4]), centers = ?HOW_MANY_CLUSTERS?)
+y2019rastsc$k = y2019rastsck$cluster
+
+tm_shape(y2019rast) +
+  tm_raster(style = "cont", palette = ?COLOR_PALETTE?) +
+  tm_shape(y2019rastsc) +
+  tm_polygons(col = "k", style = "cat")
+```
+
+E8: Dissolve the borders between superpixels belonging to the same category (hint: see https://geocompr.robinlovelace.net/geometric-operations.html#geometry-unions).
+Visualize the results.
+
+```{r}
+y2019rastsc2 = ?SUPERPIXELS_OBJECT? |> 
+  rename(snow_cover = clm_snow.cover_esa.modis_p50_1km_s0..0cm_2019.12_epsg4326_v1) |> 
+  group_by(k) |> 
+  summarise(snow_cover_avg = mean(snow_cover))
+
+tm_shape(y2019rastsc2) +
+  tm_polygons(col = "snow_cover_avg", style = "cat")
+```
+
+E9: Bonus 1: Download elevation data for Germany using the {elevatr} package. 
+Visualize the previous results on top of a hillshade map (hint: see https://github.com/Robinlovelace/geocompr/blob/main/code/05-contour-tmap.R).
+
+```{r}
+library(elevatr)
+dem = rast(get_elev_raster(ger_4839, z = 6, clip = "locations"))
+hs = shade(slope = terrain(dem, "slope", unit = "radians"), 
+           aspect = terrain(dem, "aspect", unit = "radians"),
+           angle = 30, direction = 90)
+tm_shape(hs) +
+  tm_raster(palette = gray(0:100 / 100), n = 100, legend.show = FALSE) +
+  tm_shape(dem) +
+  tm_raster(alpha = 0.6, palette = hcl.colors(25, "Geyser"), 
+            legend.show = FALSE, style = "cont") +
+  tm_shape(y2019rastsc2) +
+  tm_borders()
+```
