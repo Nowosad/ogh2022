@@ -17,8 +17,7 @@ format:
     height: 900
     footer: "[jakubnowosad.com/ogh2022](https://jakubnowosad.com/ogh2022/)"
     transition: none
-    preview-links: true
-    css: style.css
+    preview-links: false
 ---
 
 # Chapter 1: Geocomputation
@@ -81,9 +80,7 @@ Based on the David O’Sullivan's talk title at the Geocomputation 2019 conferen
 
 > At the turn of the 21st Century it was unrealistic to expect readers to be able to reproduce code examples, due to barriers preventing access to the necessary hardware, software and data
 
-## {.v-center-container}
-
-<br><br><br>
+## {.center}
 
 ```{r gdsl, echo=FALSE, message=FALSE}
 d = readr::read_csv("data/gis-vs-gds-table.csv")
@@ -137,13 +134,13 @@ Traditionally, spatial data is described by two basic data models:
 
 ### Vector data model(s)
 
-![Source: https://r-tmap.github.io/](figs/vector-data-model-1.png)
+![Source: <https://r-tmap.github.io/>](figs/vector-data-model-1.png)
 
 ---
 
 ### Raster data model(s)
 
-![Source: https://r-tmap.github.io/](figs/raster-intro-1.png)
+![Source: <https://r-tmap.github.io/>](figs/raster-intro-1.png)
 
 ---
 
@@ -153,17 +150,17 @@ Traditionally, spatial data is described by two basic data models:
 :::
 
 :::{.column}
-![Source: https://r-tmap.github.io/](figs/vector-data-cubes-1.png){height="400px"}
+![Source: <https://r-tmap.github.io/>](figs/vector-data-cubes-1.png){height="400px"}
 :::
 ::::
 
-![Source: https://r-tmap.github.io/](figs/raster-data-cubes-1.png){height="300px"}
+![Source: <https://r-tmap.github.io/>](figs/raster-data-cubes-1.png){height="300px"}
 
 ---
 
 ### Point clouds
 
-![Source: https://github.com/Jean-Romain/lidR](figs/point-cloud-rotating.gif)
+![Source: <https://github.com/Jean-Romain/lidR>](figs/point-cloud-rotating.gif)
 
 ## Coordinate reference systems
 
@@ -259,7 +256,7 @@ knitr::kable(dplyr::select(file_formats2, -Info, -Type), booktabs = TRUE)
 
 GDAL:
 
-![Source: https://r-spatial.org/2016/11/29/openeo.html](figs/gis3.png)
+![Source: <https://r-spatial.org/2016/11/29/openeo.html>](figs/gis3.png)
 
 ## Data sources -- new developments
 
@@ -447,7 +444,7 @@ Visit <https://cran.r-project.org/view=Spatial> to get an overview of different 
 
 ---
 
-![Source: https://geocompr.robinlovelace.net](https://geocompr.robinlovelace.net/figures/01-cranlogs.png)
+![Source: <https://geocompr.robinlovelace.net>](https://geocompr.robinlovelace.net/figures/01-cranlogs.png)
 
 ---
 
@@ -465,7 +462,7 @@ plot(world)
 
 ---
 
-![Source: https://www.r-spatial.org/r/2020/03/17/wkt.html](https://keen-swartz-3146c4.netlify.com/images/sf_deps.png)
+![Source: <https://www.r-spatial.org/r/2020/03/17/wkt.html>](https://keen-swartz-3146c4.netlify.com/images/sf_deps.png)
 
 <!-- + mention bridges -->
 
@@ -516,32 +513,32 @@ plot(srtm)
 
 ---
 
-![{stars} - https://r-spatial.github.io/stars/](figs/cube2.png)
+![{stars} - <https://r-spatial.github.io/stars/>](figs/cube2.png)
 
 
 ---
 
-![{s2} - https://r-spatial.github.io/s2/](figs/s2.png)
+![{s2} - <https://r-spatial.github.io/s2/>](figs/s2.png)
 
 <!-- also geoarrow -->
 
 ---
 
-![{lidR} - https://github.com/r-lidar/lidR](figs/lidr.png)
+![{lidR} - <https://github.com/r-lidar/lidR>](figs/lidr.png)
 
 ---
 
-![{sfnetwork} - https://luukvdmeer.github.io/sfnetworks](figs/sfnetwork.png)
+![{sfnetwork} - <https://luukvdmeer.github.io/sfnetworks>](figs/sfnetwork.png)
 
 ---
 
-![{spatstat} - https://spatstat.org/](figs/spatstat.png)
+![{spatstat} - <https://spatstat.org/>](figs/spatstat.png)
 
 <!-- ecosystem of packages on its own! -->
 
 ---
 
-![hypertidy-verse - https://github.com/hypertidy](figs/hypertidy.png)
+![hypertidy-verse - <https://github.com/hypertidy>](figs/hypertidy.png)
 
 ## (Dependent) spatial packages {background-image="figs/kittens.jpg" background-opacity=0.5}
 
@@ -632,7 +629,13 @@ tm_shape(s) +
 
 Also see: `tmap_mode("view")`, {mapview}
 
-## Exercises
+## Exercises {.center}
+
+### <a href="https://raw.githubusercontent.com/Nowosad/ogh2022/main/exercises/exercises1_easy.qmd" download>Easy</a>
+
+### <a href="https://raw.githubusercontent.com/Nowosad/ogh2022/main/exercises/exercises1_medium.qmd" download>Medium</a>
+
+### <a href="https://raw.githubusercontent.com/Nowosad/ogh2022/main/exercises/exercises1_hard.qmd" download>Hard</a>
 
 <!-- exercises -->
 <!-- two or three levels of difficulty -->
@@ -644,7 +647,7 @@ Also see: `tmap_mode("view")`, {mapview}
 
 :::: {.columns}
 ::: {.column}
-![Based on: https://doi.org/10.1126/science.1213847](figs/ladder1.png){height="700"}
+![Based on: <https://doi.org/10.1126/science.1213847>](figs/ladder1.png){height="700"}
 :::
 
 ::: {.column}
@@ -1057,6 +1060,9 @@ use_test("my-test")
 ::: {.column}
 Also see: ![](figs/binder.png)
 <https://mybinder.org/v2/gh/robinlovelace/geocompr/main?urlpath=rstudio>
+
+<br><br><br>
+Also see: Create a Dockerfile from renv.lock -- <https://github.com/ThinkR-open/dockerfiler>
 :::
 ::::
 
@@ -1084,7 +1090,7 @@ CI/CD: continuous integration (CI) and continuous deployment (CD)
 
 <https://geocompr.github.io/post/2022/geocompr-solutions/>
 
-## Exercises
+## Exercises {.center}
 
 <!-- Counterexercise: give a code that worked in the past -- fix it! -->
 
