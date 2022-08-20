@@ -1,0 +1,45 @@
+---
+title: "Exercises 2"
+format: html
+---
+
+Please finish Exercises 1 before starting Exercises 2.
+
+E1. Move all your code from exercises 1 E1 to E8 to a single R script file. 
+Create a copy of your script.
+Clean your code (think about your code style): move packages' loading to the top of the script, improve objects names, use consistent syntax, etc. (hint: read https://style.tidyverse.org/ or try the {styler} package (also https://github.com/Robinlovelace/styler.equals)).
+Compare your old and new version -- which one is easier to read?
+
+E2. Create a new RStudio project. 
+Add a new folder `R/` inside of the RStudio project and move your new script there.
+
+E3. Create a reproducible example based on your script using the {reprex} package.
+(bonus: try to add session information to your *reprex*).
+Post the {reprex} output as a new issue at https://github.com/Nowosad/ogh2022/issues.
+
+E4. Use the {renv} package to create reproducible environments for your RStudio project.
+
+E5. Use version control (git) in your RStudio project. 
+Create a new repository at https://github.com/, and push your code there.
+(hint: you can do it directly from R using the {usethis} package:
+1. `usethis::use_git()` to initialize git repository
+2. `usethis::create_github_token()` and `gitcreds::gitcreds_set()` to set up GitHub credentials
+3. `usethis::use_github()` to push your code to GitHub
+)
+
+E6. Change your script to derive three categories of superpixels (instead of six).
+Add, commit, and push your changes to GitHub.
+(hint: use can you the Git tab in RStudio for that: 
+1. Tick the Staged square next to your changed file
+2. Click "Commit" 
+3. Write a short commit message in the top right corner, and click "Commit" there
+4. Click on the "Push" icon
+)
+Check if your GitHub repository has changed.
+
+E7. Write a new R function called `spat_cluster()` that takes four arguments: an input raster, an output number of categories, a number of superpixels, and a superpixels compactness, and returns a spatial vector object with a specified number of clusters.
+In short, this function should combine the code from exercises 1 E7 and E8 
+(hint: you can read more about R functions at https://adv-r.hadley.nz/functions.html).
+
+E8. Create a new R package that contains the `spat_cluster()` function.
+Push the package to a new GitHub repository.

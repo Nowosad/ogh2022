@@ -1090,7 +1090,7 @@ CI/CD: continuous integration (CI) and continuous deployment (CD)
 
 <https://geocompr.github.io/post/2022/geocompr-solutions/>
 
-## Exercises {.center}
+## [Exercises](https://raw.githubusercontent.com/Nowosad/ogh2022/main/exercises/exercises2.qmd) {.center}
 
 <!-- Counterexercise: give a code that worked in the past -- fix it! -->
 
