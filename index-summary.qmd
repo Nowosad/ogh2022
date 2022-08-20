@@ -1,0 +1,264 @@
+---
+title: "Geocomputation with R's guide <br>to reproducible<br>spatial<br>data analysis: a sneak peek"
+author: "Jakub Nowosad, <https://jakubnowosad.com/>"
+institute: "OpenGeoHub Summer School 2022"
+date: "2022-08-30"
+date-format: iso
+title-slide-attributes:
+    data-background-image: "figs/start2.png"
+    data-background-size: cover
+    data-background-opacity: "0.4"
+format:
+  n3-revealjs:
+    echo: true
+    highlight-style: github
+    slide-number: c/t
+    width: 1600
+    height: 900
+    footer: "[jakubnowosad.com/ogh2022](https://jakubnowosad.com/ogh2022/)"
+    transition: none
+    preview-links: false
+---
+
+---
+
+::: {.r-fit-text}
+(**geo**)spati|graphic)\*(al)\*
+
+( )\*(stuff|data|**comput**|inform)\*(ing|**ation**)\*
+
+(science|systems|theory|analysis)\*
+:::
+
+::: aside
+Based on the David O’Sullivan's talk title at the Geocomputation 2019 conference
+:::
+
+## Data sources -- new developments
+
+**SpatioTemporal Asset Catalog (STAC)** -- a general description format for spatiotemporal data that is used to describe a variety of datasets on cloud platforms including imagery, synthetic aperture radar (SAR) data, and point clouds.
+
+**Cloud Optimized GeoTIFF (COG)** -- raster objects saved as COGs can be hosted on HTTP servers, so other people can read only parts of the file without downloading the whole file
+
+**Other new file formats** -- [GeoParquet](https://github.com/opengeospatial/geoparquet), [GeoArrow](https://github.com/paleolimbot/geoarrow), [Zarr](https://gdal.org/drivers/raster/zarr.html)
+
+::: aside
+<https://geocompr.robinlovelace.net/gis.html#stac-cogs-and-data-cubes-in-the-cloud>, <https://dewey.dunnington.ca/post/2022/building-bridges-arrow-parquet-and-geospatial-computing/>
+:::
+
+## Spatial vizualizations
+
+:::: {.columns}
+
+::: {.column width="30%"}
+
+![](figs/map1.jpeg)
+
+:::
+
+::: {.column width="70%"}
+
+::: {layout="[[1,1.2], [-1, 1.2]]"}
+![](figs/map2.jpeg){width="600"}
+
+![](figs/map3.jpeg){width="500"}
+
+![](figs/map4.jpeg){width="650" fig-align="center"}
+:::
+
+:::
+
+::::
+
+::: aside
+https://30daymapchallenge.com/2021/ <br> @HeatherCh100, @Cchurchili, @@tjukanov, @evelynuuemaa 
+:::
+
+
+## Ecosystems
+
+<!-- more than one way to solve a problem -->
+<!-- alternative images: french vs english garden -->
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+![](figs/field1.jpg)
+
+["What a lawn" (CC BY-SA 2.0) by heipei ...](https://www.flickr.com/photos/heipei/25718450/)
+
+:::
+
+::: {.column width="50%"}
+
+![](figs/field2.jpg){width="900"}
+
+["A field of flowers" (CC BY-SA 2.0) by Nigel Corby ...](https://www.geograph.org.uk/photo/1389946)
+
+:::
+
+::::
+---
+
+![Source: <https://geocompr.robinlovelace.net>](https://geocompr.robinlovelace.net/figures/01-cranlogs.png)
+
+---
+
+```{r}
+library(spData)
+library(sf)
+world
+```
+
+---
+
+```{r}
+library(terra)
+srtm = rast(system.file("raster/srtm.tif", package = "spDataLarge"))
+srtm
+```
+
+## {background-image="figs/bingo.jpg" background-opacity=0.2}
+
+::::{.columns}
+:::{.column}
+### [rspatial](https://www.rspatial.org/) vs [r-spatial](https://www.r-spatial.org/)
+
+<br><br><br><br><br><br>
+
+### [Legacy](https://geocompr.robinlovelace.net/intro.html#the-history-of-r-spatial)
+:::
+
+:::{.column}
+### Old vs New
+<br><br><br><br><br><br>
+
+### [Various R ecosystems](https://geocompr.github.io/post/2021/spatial-classes-conversion/)
+:::
+::::
+
+
+
+## Reproduciblity spectrum
+
+:::: {.columns}
+::: {.column}
+![Based on: <https://doi.org/10.1126/science.1213847>](figs/ladder1.png){height="700"}
+:::
+
+::: {.column}
+- Reproducible/Replicable
+- Not only for publications!
+:::
+
+::::
+
+## Yes, but why?
+
+:::: {.columns}
+::: {.column}
+![](figs/ladder2.png)
+:::
+
+::: {.column}
+Internal and external reasons
+:::
+
+::::
+
+
+## Story of my life
+
+:::: {.columns}
+::: {.column width="50%"}
+![](figs/mypap.png){fig-align="center"}
+:::
+
+::: {.column}
+
+- **Issue:** human memory
+- <http://dx.doi.org/10.2478/quageo-2014-0005>
+- **Solution:** code!
+
+:::
+
+::::
+## R code
+
+- **Issue:** packages (and their dependencies) versions
+
+![](figs/mt-gears.gif){fig-align="center"}
+
+
+## Version control
+
+:::: {.columns}
+::: {.column width="30%"}
+- **Issue:** what if the older version was better?
+- **Issue:** backup copy
+- **Issue:** sharing
+- **Issue:** collaborating
+
+
+![](figs/gitlogo.png){width="500"}
+:::
+
+::: {.column width="70%" .incremental}
+
+![](figs/rgit.png){width="900" fig-align="center"}
+
+![](figs/githublogo.png){width="700" fig-align="center"}
+
+![](figs/gitlablogo.png){width="700" fig-align="center"}
+
+:::
+::::
+
+## R packages
+
+:::: {.columns}
+::: {.column width="60%"}
+R packages may serve many purposes...
+
+![](figs/supercells-gh.png)
+<https://github.com/Nowosad/supercells>
+:::
+
+::: {.column width="35%"}
+![](figs/spData-gh.png)
+<https://github.com/Nowosad/spData>
+![](figs/geocompkg-gh.png)
+<https://github.com/geocompr/geocompkg>
+:::
+::::
+
+
+---
+
+:::: {.columns}
+::: {.column}
+![](figs/geocompr-docker2.png)
+:::
+
+::: {.column}
+Also see: ![](figs/binder.png)
+<https://mybinder.org/v2/gh/robinlovelace/geocompr/main?urlpath=rstudio>
+
+<br><br><br>
+Also see: Create a Dockerfile from renv.lock -- <https://github.com/ThinkR-open/dockerfiler>
+:::
+::::
+
+
+## Exercises {.center}
+
+### <a href="https://raw.githubusercontent.com/Nowosad/ogh2022/main/exercises/exercises1_easy.qmd" download>Easy</a>
+
+### <a href="https://raw.githubusercontent.com/Nowosad/ogh2022/main/exercises/exercises1_medium.qmd" download>Medium</a>
+
+### <a href="https://raw.githubusercontent.com/Nowosad/ogh2022/main/exercises/exercises1_hard.qmd" download>Hard</a>
+
+<!-- exercises -->
+<!-- two or three levels of difficulty -->
+<!-- Exercise: includes downloading files online, some function that is new,  -->
