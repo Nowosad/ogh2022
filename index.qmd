@@ -302,33 +302,10 @@ It can be divided into four groups:
 ## Spatial data analysis
 
 ::::{.columns}
-:::{.column}
-```{dot}
-#| echo = FALSE
-digraph G {
-     layout=circo
-     rankdir=LR
-     
-     node [shape=circle];
-     cir1 [label="Spatial analysis"];
-     
-     node [shape=rectangle];
-     rec1 [label="Spatial autocorrelation"];
-     rec2 [label="Spatial interpolation"];
-     rec3 [label="Spatial interaction"];
-     rec4 [label="Simulation and modeling"];
-     rec5 [label="Density mapping"];
-     
-     rec1 -> cir1;
-     rec2 -> cir1;
-     rec3 -> cir1;
-     rec4 -> cir1;
-     rec5 -> cir1;
-     }
-```
-:::
 
 :::{.column}
+Based on the input data type:
+
 ```{dot d2}
 #| echo = FALSE
 digraph G2 {
@@ -357,6 +334,35 @@ digraph G2 {
    }
 ```
 :::
+
+:::{.column}
+Based on the goal of the analysis:
+
+```{dot}
+#| echo = FALSE
+digraph G {
+     layout=circo
+     rankdir=LR
+     
+     node [shape=circle];
+     cir1 [label="Spatial analysis"];
+     
+     node [shape=rectangle];
+     rec1 [label="Spatial autocorrelation"];
+     rec2 [label="Spatial interpolation"];
+     rec3 [label="Spatial interaction"];
+     rec4 [label="Simulation and modeling"];
+     rec5 [label="Density mapping"];
+     
+     rec1 -> cir1;
+     rec2 -> cir1;
+     rec3 -> cir1;
+     rec4 -> cir1;
+     rec5 -> cir1;
+     }
+```
+:::
+
 ::::
 
 *(incomplete lists)*
@@ -793,6 +799,9 @@ Also: clear environment + restart R
 :::
 ::::
 
+::: aside
+https://twitter.com/robinlovelace/status/1561702311432523778
+:::
 
 ## {reprex}: *repr*oducible *ex*ample
 
