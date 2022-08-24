@@ -24,9 +24,10 @@ Run the code below in R to install all of the required R packages.
 
 ```r
 install.packages("remotes")
-pkg_list = c("rgeoboundaries", "terra", "sf", "tmap", "supercells", "dplyr",
+pkg_list = c("terra", "sf", "tmap", "supercells", "dplyr",
              "usethis", "reprex", "renv", "devtools")
 remotes::install_cran(pkg_list)
+remotes::install_github("wmgeolab/rgeoboundaries")
 ```
 
 Let me know if you have any questions! 
