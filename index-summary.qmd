@@ -2,7 +2,7 @@
 title: "Geocomputation with R's guide <br>to reproducible<br>spatial<br>data analysis: a sneak peek"
 author: "Jakub Nowosad, <https://jakubnowosad.com/>"
 institute: "OpenGeoHub Summer School 2022"
-date: "2022-08-30"
+date: "2022-08-29"
 date-format: iso
 title-slide-attributes:
     data-background-image: "figs/start2.png"
@@ -19,6 +19,31 @@ format:
     transition: none
     preview-links: false
 ---
+
+---
+
+## Hi, I'm Jakub
+
+:::: {.columns}
+
+::: {.column width="70%"}
+Website: https://jakubnowosad.com
+
+Twitter: [jakub_nowosad](https://twitter.com/jakub_nowosad)
+
+1. [I am an assistant professor in the Department of Geoinformation at the Adam Mickiewicz University in Poznań](https://jakubnowosad.com/publications) - I study spatial patterns
+2. [I am a co-author of the Geocomputation with R book](https://geocompr.github.io/)
+3. [I create R packages](https://jakubnowosad.com/projects)
+
+:::
+
+::: {.column width="30%"}
+
+![](figs/cover-geocompr.png)
+
+:::
+
+::::
 
 ---
 
